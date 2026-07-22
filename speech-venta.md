@@ -1,43 +1,63 @@
 # Speech de Venta — Marketing Digital (Meta & Google Ads)
 
-## Intro (15-20 segundos)
+## Intro (~20 segundos)
 
 **ESPAÑOL:**
 
-> "Hola [nombre], soy Armando Rangel, de RANGEL DESIGN.
+> "Hola [nombre], habla Armando Rangel de Rangel Design — ¿tienes 20 segundos o te agarré en mal momento?"
 >
-> Te llamo porque veo que tu negocio está en [ciudad] y quería comentarte algo rápido.
+> *(esperas respuesta — esto solo ya sube la tasa de que sigan escuchando)*
 >
-> Hoy estamos ayudando a empresas como la tuya a conseguir **clientes nuevos con publicidad en Google y Meta** — sin necesidad de tener página web. Trabajamos con resultados medibles, desde **$150.000 mensuales**.
+> "Te cuento rápido: trabajo con negocios de **[rubro]** en **[ciudad]** ayudándolos a conseguir clientes nuevos con publicidad en Google y Meta, sin necesidad de tener página web.
 >
-> ¿Te puedo enviar un par de ejemplos de negocios similares que ya están facturando con esto?"
+> No te quiero vender nada por teléfono — la idea es mostrarte 2 o 3 casos de negocios parecidos al tuyo y ver si tiene sentido para ti. ¿Tienes 15 minutos esta semana, martes o jueves, para que te muestre cómo lo estamos haciendo?"
 
 **ENGLISH:**
 
-> "Hi [name], this is Armando from RANGEL DESIGN.
+> "Hi [name], this is Armando from Rangel Design — do you have 20 seconds, or is this a bad time?"
 >
-> I'm reaching out because I'm helping businesses in [city] get more customers through **Google and Meta advertising** — no website required. We work with measurable results starting at $150/month.
+> *(wait for response)*
 >
-> Can I send you a quick example of how this works?"
+> "Quickly: I work with **[niche]** businesses in **[city]** helping them get new customers through Google and Meta ads — no website required.
+>
+> I'm not trying to sell you anything over the phone. The idea is to show you 2 or 3 case studies of similar businesses and see if it makes sense for you. Do you have 15 minutes this week, Tuesday or Thursday, for me to show you how we're doing it?"
 
 ---
 
-## Key Objections & Replies
+## Estructura de la Llamada
 
-**"Ya tengo alguien que hace eso"**
-→ "Perfecto, ¿y cómo van los resultados? A veces un segundo par de ojos encuentra oportunidades que duplican el rendimiento sin aumentar el presupuesto."
+```
+1. Permiso → "¿tienes 20 segundos?" (sube atención)
+2. Contexto → "Trabajo con [rubro] en [ciudad]..."
+3. Propuesta → "Casos similares, sin vender por teléfono"
+4. Cierre → "¿Martes o jueves?"
+```
 
-**"No tengo presupuesto"**
-→ "Entiendo. Justamente trabajamos con campañas desde $150.000 para que cualquier negocio pueda probar. ¿Qué tal si agendamos 10 minutos y te muestro qué se podría hacer con eso?"
+---
 
-**"Mándame información por WhatsApp"**
-→ "Claro, con gusto. Pero antes, ¿qué rubro es exactamente tu negocio? Así te envío algo más ajustado a lo que necesitas."
+## Objeciones & Respuestas
+
+**"¿Cuánto cuesta?"**
+→ "Déjame mostrarte primero los casos y vemos si tiene sentido — después te paso los números. ¿Martes o jueves te viene mejor?"
+
+**"Ya tengo alguien que hace publicidad"**
+→ "Qué bien. ¿Y cómo van los resultados? Si estás conforme, perfecto. Pero si crees que se podría estar sacando más, te muestro rápido lo que estamos haciendo."
+
+**"No tengo presupuesto ahorita"**
+→ "Te entiendo. Precisamente por eso partimos mostrando casos reales con resultados para que veas el retorno. No te propongo nada sin que tú mismo veas si el negocio da. ¿Te parece si agendamos?"
+
+**"Mándame info por WhatsApp"**
+→ "Claro, con gusto. Pero antes — cuéntame, ¿qué es lo que más te interesa? ¿Google o Meta? Así te envío algo más preciso."
+
+**Duda / Indecisión**
+→ "Sin compromiso — solo 15 minutos para mostrarte lo que otros negocios como el tuyo están logrando. Si no te sirve, no pasa nada. ¿Martes a las 11 o jueves a las 4 te viene mejor?"
 
 ---
 
 ## Tips
 
-1. **Primero escucha** — pregunta por su negocio antes de vender
-2. **Resultados > Características** — no hables de "algoritmos", habla de "más clientes"
-3. **Cierra con pregunta** — siempre termina con una pregunta. No digas "gracias, chao"
-4. **Anota todo** — after each call, mark notes
+1. **Pide permiso primero** — "¿tienes 20 segundos?" desarma la defensa automática
+2. **No vendas por teléfono** — el objetivo NO es cerrar, es agendar 15 min
+3. **Precio al final** — solo después de mostrar valor. Si preguntan antes, deriva
+4. **Siempre opción binaria** — "¿Martes o jueves?" no "¿te interesaría?"
+5. **Anota todo** — después de cada llamada registra resultado
