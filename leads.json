@@ -4,468 +4,602 @@
     "phone": "56950195849",
     "city": "Santiago",
     "niche": "gasfitero",
-    "id": "lead-1"
+    "id": "lead-1",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Gasfiter Santiago",
     "phone": "56226837000",
     "city": "Santiago",
     "niche": "gasfitero",
-    "id": "lead-2"
+    "id": "lead-2",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Gasfitería GEAC",
     "phone": "56912345678",
     "city": "Santiago",
     "niche": "gasfitero",
-    "id": "lead-3"
+    "id": "lead-3",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Plomero.cl",
     "phone": "56961913434",
     "city": "Santiago",
     "niche": "gasfitero",
-    "id": "lead-4"
+    "id": "lead-4",
+    "rating": 4.9,
+    "reviews_count": 38
   },
   {
     "name": "Maestro Gasfiter",
     "phone": "56949952416",
     "city": "Santiago",
     "niche": "gasfitero",
-    "id": "lead-5"
+    "id": "lead-5",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Gasfitería Alemana",
     "phone": "56912345678",
     "city": "Santiago",
     "niche": "gasfitero",
-    "id": "lead-6"
+    "id": "lead-6",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Chile Gasfitería",
     "phone": "56950929932",
     "city": "Santiago",
     "niche": "gasfitero",
-    "id": "lead-7"
+    "id": "lead-7",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Gasfiter Domicilio",
     "phone": "56974679118",
     "city": "Santiago",
     "niche": "gasfitero",
-    "id": "lead-8"
+    "id": "lead-8",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Fonomaestro",
     "phone": "56226415492",
     "city": "Santiago",
     "niche": "gasfitero",
-    "id": "lead-9"
+    "id": "lead-9",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Gasfitería Urgente",
     "phone": "56912345678",
     "city": "Santiago",
     "niche": "gasfitero",
-    "id": "lead-10"
+    "id": "lead-10",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Gasfiter Profesionales",
     "phone": "56984765541",
     "city": "Santiago Centro",
     "niche": "gasfitero",
-    "id": "lead-11"
+    "id": "lead-11",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Don Gasfiter",
     "phone": "56987331524",
     "city": "Santiago",
     "niche": "gasfitero",
-    "id": "lead-12"
+    "id": "lead-12",
+    "rating": 4.9,
+    "reviews_count": 127
   },
   {
     "name": "El Plomero",
     "phone": "56975880527",
     "city": "Santiago",
     "niche": "gasfitero",
-    "id": "lead-13"
+    "id": "lead-13",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "AS Gasfiter",
     "phone": "56997481755",
     "city": "Santiago",
     "niche": "gasfitero",
-    "id": "lead-14"
+    "id": "lead-14",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Maestro en Casa",
     "phone": "56985461787",
     "city": "Las Condes",
     "niche": "gasfitero",
-    "id": "lead-15"
+    "id": "lead-15",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Gasfitería 24hrs",
     "phone": "56998767089",
     "city": "Santiago",
     "niche": "gasfitero",
-    "id": "lead-16"
+    "id": "lead-16",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Emergencias Eléctricas Chile",
     "phone": "56920248844",
     "city": "Santiago",
     "niche": "electricista",
-    "id": "lead-17"
+    "id": "lead-17",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Servielectric",
     "phone": "56968952565",
     "city": "Santiago",
     "niche": "electricista",
-    "id": "lead-18"
+    "id": "lead-18",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Electricista24.cl",
     "phone": "56972412050",
     "city": "Santiago",
     "niche": "electricista",
-    "id": "lead-19"
+    "id": "lead-19",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Electricista Domicilio",
     "phone": "56950195849",
     "city": "Santiago",
     "niche": "electricista",
-    "id": "lead-20"
+    "id": "lead-20",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Voltaje LM",
     "phone": "56952252898",
     "city": "Providencia",
     "niche": "electricista",
-    "id": "lead-21"
+    "id": "lead-21",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Electricista Certificado SEC",
     "phone": "56991060582",
     "city": "Santiago",
     "niche": "electricista",
-    "id": "lead-22"
+    "id": "lead-22",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Emergencias Eléctricas 24hrs",
     "phone": "56991069857",
     "city": "Santiago",
     "niche": "electricista",
-    "id": "lead-23"
+    "id": "lead-23",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Electricidad SEC",
     "phone": "56951987818",
     "city": "Santiago",
     "niche": "electricista",
-    "id": "lead-24"
+    "id": "lead-24",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Electricistas Chile",
     "phone": "56936396894",
     "city": "Santiago",
     "niche": "electricista",
-    "id": "lead-25"
+    "id": "lead-25",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Cerrajero a Domicilio",
     "phone": "56961499027",
     "city": "Santiago",
     "niche": "cerrajero",
-    "id": "lead-26"
+    "id": "lead-26",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Cerrajero Vega",
     "phone": "56992391520",
     "city": "Santiago",
     "niche": "cerrajero",
-    "id": "lead-27"
+    "id": "lead-27",
+    "rating": 5.0,
+    "reviews_count": 0
   },
   {
     "name": "Cerrajero Santiago Centro",
     "phone": "56961583641",
     "city": "Santiago Centro",
     "niche": "cerrajero",
-    "id": "lead-28"
+    "id": "lead-28",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Cerrajería SOS",
     "phone": "56966106186",
     "city": "Santiago",
     "niche": "cerrajero",
-    "id": "lead-29"
+    "id": "lead-29",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Cerrajero Amigo",
     "phone": "56962361491",
     "city": "Santiago",
     "niche": "cerrajero",
-    "id": "lead-30"
+    "id": "lead-30",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Cerrajero 24/7",
     "phone": "56976493155",
     "city": "Santiago",
     "niche": "cerrajero",
-    "id": "lead-31"
+    "id": "lead-31",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Cerrajería Urgente",
     "phone": "56965323143",
     "city": "Santiago",
     "niche": "cerrajero",
-    "id": "lead-32"
+    "id": "lead-32",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Alo Cerrajero",
     "phone": "56950195849",
     "city": "Santiago Centro",
     "niche": "cerrajero",
-    "id": "lead-33"
+    "id": "lead-33",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Cerrajero Lockmaster",
     "phone": "56926985701",
     "city": "Santiago",
     "niche": "cerrajero",
-    "id": "lead-34"
+    "id": "lead-34",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Pinta",
     "phone": "56991215534",
     "city": "Providencia",
     "niche": "pintor",
-    "id": "lead-35"
+    "id": "lead-35",
+    "rating": 4.5,
+    "reviews_count": 0
   },
   {
     "name": "Techomanía",
     "phone": "56954161777",
     "city": "Las Condes",
     "niche": "pintor",
-    "id": "lead-36"
+    "id": "lead-36",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Maestros Pintores",
     "phone": "56226837000",
     "city": "Santiago",
     "niche": "pintor",
-    "id": "lead-37"
+    "id": "lead-37",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Grupo Guzmán Pintura",
     "phone": "56949841173",
     "city": "Santiago",
     "niche": "pintor",
-    "id": "lead-38"
+    "id": "lead-38",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Reparación Techos",
     "phone": "56992868721",
     "city": "Santiago",
     "niche": "pintor",
-    "id": "lead-39"
+    "id": "lead-39",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Techomaniacos",
     "phone": "56912345678",
     "city": "Santiago",
     "niche": "pintor",
-    "id": "lead-40"
+    "id": "lead-40",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Tu Carpintero",
     "phone": "56965131361",
     "city": "Santiago",
     "niche": "carpintero",
-    "id": "lead-41"
+    "id": "lead-41",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Maestro Carpintero",
     "phone": "56990211212",
     "city": "Ñuñoa",
     "niche": "carpintero",
-    "id": "lead-42"
+    "id": "lead-42",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Ferretería El Carpintero",
     "phone": "56991289372",
     "city": "Santiago",
     "niche": "carpintero",
-    "id": "lead-43"
+    "id": "lead-43",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Carpintero Pablo Alfaro",
     "phone": "56991289372",
     "city": "Santiago",
     "niche": "carpintero",
-    "id": "lead-44"
+    "id": "lead-44",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Carpintero Nelson Cisternas",
     "phone": "56966462417",
     "city": "Santiago",
     "niche": "carpintero",
-    "id": "lead-45"
+    "id": "lead-45",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Guido Zagaglioni",
     "phone": "56998600645",
     "city": "Viña del Mar",
     "niche": "gasfitero",
-    "id": "lead-46"
+    "id": "lead-46",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Gasfitería Quinta Región",
     "phone": "56981969171",
     "city": "Viña del Mar",
     "niche": "gasfitero",
-    "id": "lead-47"
+    "id": "lead-47",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Aquí Gásfiter Viña",
     "phone": "56984409443",
     "city": "Viña del Mar",
     "niche": "gasfitero",
-    "id": "lead-48"
+    "id": "lead-48",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Gasfiter Don Jose",
     "phone": "56921603867",
     "city": "Viña del Mar",
     "niche": "gasfitero",
-    "id": "lead-49"
+    "id": "lead-49",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "SV Electricidad",
     "phone": "56947569747",
     "city": "Viña del Mar",
     "niche": "electricista",
-    "id": "lead-50"
+    "id": "lead-50",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Electricidad Vásquez",
     "phone": "56959082790",
     "city": "Viña del Mar",
     "niche": "electricista",
-    "id": "lead-51"
+    "id": "lead-51",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Home Service Chile",
     "phone": "56965802894",
     "city": "Viña del Mar",
     "niche": "electricista",
-    "id": "lead-52"
+    "id": "lead-52",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Electricidad y Gasfitería Vidal",
     "phone": "56962614744",
     "city": "Valparaíso",
     "niche": "gasfitero",
-    "id": "lead-53"
+    "id": "lead-53",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Gasfigas Valparaíso",
     "phone": "56993316182",
     "city": "Valparaíso",
     "niche": "gasfitero",
-    "id": "lead-54"
+    "id": "lead-54",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Sgr Electricidad",
     "phone": "56997221630",
     "city": "Valparaíso",
     "niche": "electricista",
-    "id": "lead-55"
+    "id": "lead-55",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "GasfiterConce",
     "phone": "56954857763",
     "city": "Concepción",
     "niche": "gasfitero",
-    "id": "lead-56"
+    "id": "lead-56",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Gásfiter a Domicilio Concepción",
     "phone": "56993243923",
     "city": "Concepción",
     "niche": "gasfitero",
-    "id": "lead-57"
+    "id": "lead-57",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "ConstruGas",
     "phone": "56979570078",
     "city": "Concepción",
     "niche": "gasfitero",
-    "id": "lead-58"
+    "id": "lead-58",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Hector Matus Gasfiter",
     "phone": "56940419430",
     "city": "Concepción",
     "niche": "gasfitero",
-    "id": "lead-59"
+    "id": "lead-59",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "TES Electricista",
     "phone": "56977808342",
     "city": "Concepción",
     "niche": "electricista",
-    "id": "lead-60"
+    "id": "lead-60",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Bio Bio Eléctricos",
     "phone": "56972412050",
     "city": "Concepción",
     "niche": "electricista",
-    "id": "lead-61"
+    "id": "lead-61",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Electricista Domicilio Concepción",
     "phone": "56939695577",
     "city": "Concepción",
     "niche": "electricista",
-    "id": "lead-62"
+    "id": "lead-62",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Serviconstrucción",
     "phone": "56997578451",
     "city": "Concepción",
     "niche": "electricista",
-    "id": "lead-63"
+    "id": "lead-63",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Yo Instalo",
     "phone": "56912345678",
     "city": "Santiago",
     "niche": "solar",
-    "id": "lead-64"
+    "id": "lead-64",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Expertos en Panel Solar",
     "phone": "56912345678",
     "city": "Santiago",
     "niche": "solar",
-    "id": "lead-65"
+    "id": "lead-65",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "Solar Fotovoltaica",
     "phone": "56912345678",
     "city": "Santiago",
     "niche": "solar",
-    "id": "lead-66"
+    "id": "lead-66",
+    "rating": null,
+    "reviews_count": null
   },
   {
     "name": "SolarPro Chile",
     "phone": "56912345678",
     "city": "Santiago",
     "niche": "solar",
-    "id": "lead-67"
+    "id": "lead-67",
+    "rating": null,
+    "reviews_count": null
   }
 ]
