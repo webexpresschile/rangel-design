@@ -3,420 +3,336 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rangel Design System — RDS</title>
-  <meta name="description" content="RDS: Diseño web, adquisición de clientes con anuncios y automatizaciones con IA. Transformamos tu negocio en una máquina de ventas." />
+  <title>RANGEL DESIGN SYSTEM — RDS</title>
+  <meta name="description" content="Diseño web, adquisición de clientes y automatizaciones IA. Estudio independiente con base en Santiago, Chile." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    /* ===== RESET & BASE ===== */
+    /* ===== RESET ===== */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', sans-serif;
-      background: #0a0a0f;
-      color: #e4e4e7;
-      line-height: 1.6;
+      background: #07070a;
+      color: #e8e8ed;
+      line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
-    h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', sans-serif; font-weight: 600; letter-spacing: -0.02em; }
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 600; letter-spacing: -0.03em; }
 
-    /* ===== TEAL TOKENS ===== */
+    /* ===== TOKENS ===== */
     :root {
       --teal: #14b8a6;
-      --teal-dark: #0d9488;
-      --teal-light: #2dd4bf;
-      --teal-glow: rgba(20, 184, 166, 0.15);
-      --bg: #0a0a0f;
-      --bg-card: #111118;
-      --bg-card-hover: #16161f;
-      --border: #1e1e2a;
-      --text: #e4e4e7;
-      --text-muted: #7c7c8a;
-      --text-dim: #52525b;
+      --teal-dim: rgba(20,184,166,0.12);
+      --teal-glow: rgba(20,184,166,0.08);
+      --bg: #07070a;
+      --bg-card: #0c0c12;
+      --bg-elevated: #111118;
+      --border: #1a1a26;
+      --text: #e8e8ed;
+      --text-muted: #8888a0;
+      --text-dim: #55556a;
       --max-w: 1200px;
     }
 
-    /* ===== UTILITY ===== */
     .container { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
-    .section { padding: 6rem 0; }
-    .section-label {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em;
+
+    /* ===== TYPOGRAPHY ===== */
+    h2.section-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.1; }
+    .text-muted { color: var(--text-muted); }
+    .text-dim { color: var(--text-dim); }
+    .label-sm {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em;
+      color: var(--text-dim); margin-bottom: 1.5rem;
+    }
+    .label-teal {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em;
       color: var(--teal); margin-bottom: 1rem;
     }
-    .section-label::before {
-      content: ''; display: block; width: 2rem; height: 1px; background: var(--teal);
-    }
-    .section-title {
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.15;
-      margin-bottom: 1rem;
-    }
-    .section-subtitle {
-      font-size: 1.05rem; color: var(--text-muted); max-width: 600px; line-height: 1.7;
-    }
 
-    /* ===== BACKGROUND EFFECTS ===== */
+    /* ===== BACKGROUND ===== */
     .bg-glow {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      pointer-events: none; z-index: 0;
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
       background:
-        radial-gradient(ellipse 800px 600px at 20% 20%, rgba(20,184,166,0.04) 0%, transparent 70%),
-        radial-gradient(ellipse 600px 800px at 80% 60%, rgba(20,184,166,0.03) 0%, transparent 70%),
-        radial-gradient(ellipse 400px 400px at 50% 80%, rgba(20,184,166,0.02) 0%, transparent 70%);
-    }
-    .noise-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      pointer-events: none; z-index: 1; opacity: 0.03;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        radial-gradient(ellipse 900px 500px at 15% 10%, rgba(20,184,166,0.03) 0%, transparent 60%),
+        radial-gradient(ellipse 700px 700px at 80% 50%, rgba(20,184,166,0.02) 0%, transparent 60%),
+        radial-gradient(ellipse 500px 400px at 40% 85%, rgba(20,184,166,0.015) 0%, transparent 60%);
     }
     main { position: relative; z-index: 2; }
 
     /* ===== NAVBAR ===== */
     .navbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 1rem 0;
-      transition: background 0.3s, backdrop-filter 0.3s, padding 0.3s;
+      padding: 1.25rem 0; transition: all 0.35s;
     }
     .navbar.scrolled {
-      background: rgba(10,10,15,0.85);
-      backdrop-filter: blur(16px) saturate(1.1);
-      padding: 0.65rem 0;
-      border-bottom: 1px solid rgba(30,30,42,0.5);
+      background: rgba(7,7,10,0.88);
+      backdrop-filter: blur(18px);
+      padding: 0.7rem 0;
+      border-bottom: 1px solid rgba(26,26,38,0.6);
     }
     .navbar .container { display: flex; align-items: center; justify-content: space-between; }
     .nav-logo {
-      display: flex; align-items: center; gap: 0.75rem; text-decoration: none;
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.15rem;
+      text-decoration: none; color: var(--text); letter-spacing: -0.02em;
     }
-    .nav-logo-mark {
-      width: 36px; height: 36px; border: 2px solid var(--teal); border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 0.85rem;
-      color: var(--teal); background: rgba(20,184,166,0.08);
-    }
-    .nav-logo-text {
-      font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.1rem; color: var(--text);
-    }
-    .nav-logo-text span { color: var(--teal); }
-    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-logo span { color: var(--teal); }
+    .nav-right { display: flex; align-items: center; gap: 2.5rem; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
-      text-decoration: none; color: var(--text-muted); font-size: 0.9rem; font-weight: 400;
-      transition: color 0.2s; position: relative;
-    }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1.5px;
-      background: var(--teal); transition: width 0.3s;
+      text-decoration: none; color: var(--text-dim); font-size: 0.85rem;
+      transition: color 0.2s; font-weight: 400;
     }
     .nav-links a:hover { color: var(--text); }
-    .nav-links a:hover::after { width: 100%; }
     .nav-cta {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--teal); color: #0a0a0f !important; padding: 0.55rem 1.25rem;
-      border-radius: 8px; font-weight: 600 !important; font-size: 0.85rem !important;
-      transition: background 0.2s, transform 0.2s;
+      text-decoration: none; color: var(--teal); font-size: 0.85rem; font-weight: 500;
+      border: 1px solid rgba(20,184,166,0.25); padding: 0.5rem 1.25rem;
+      border-radius: 6px; transition: all 0.2s;
     }
-    .nav-cta:hover { background: var(--teal-light) !important; transform: translateY(-1px); }
-    .nav-cta::after { display: none !important; }
-    .mobile-toggle { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 4px; }
+    .nav-cta:hover { background: var(--teal-dim); border-color: var(--teal); }
+    .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
     .mobile-toggle span {
-      display: block; width: 22px; height: 2px; background: var(--text);
-      border-radius: 2px; transition: all 0.3s;
+      display: block; width: 20px; height: 1.5px; background: var(--text);
+      transition: all 0.3s; border-radius: 2px;
     }
-    .mobile-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
-    .mobile-toggle.active span:nth-child(2) { opacity: 0; }
-    .mobile-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
 
     /* ===== HERO ===== */
     .hero {
-      min-height: 100vh; display: flex; align-items: center;
-      padding: 8rem 0 4rem; position: relative; overflow: hidden;
+      min-height: 100vh; display: flex; align-items: flex-end;
+      padding: 10rem 0 3rem; position: relative;
     }
-    .hero-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    .hero-row { display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: end; }
+    .hero h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem); line-height: 1.02;
+      letter-spacing: -0.04em; max-width: 900px;
+    }
+    .hero h1 .accent { color: var(--teal); }
+    .hero-tagline {
+      font-size: 0.95rem; color: var(--text-muted); margin-top: 1.5rem;
+      max-width: 500px; line-height: 1.6;
     }
     .hero-badge {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(20,184,166,0.08); border: 1px solid rgba(20,184,166,0.2);
-      padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.8rem; color: var(--teal);
-      margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.5rem 0; margin-bottom: 2rem;
     }
     .hero-badge-dot {
-      width: 6px; height: 6px; background: var(--teal); border-radius: 50%;
-      animation: pulse 2s ease-in-out infinite;
+      width: 6px; height: 6px; background: var(--teal); border-radius: 50%; flex-shrink: 0;
     }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-    .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.08;
-      margin-bottom: 1.25rem;
+    .hero-badge span { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-dim); }
+    .hero-side { text-align: right; }
+    .hero-side .year { font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0.1em; }
+    .hero-side .location { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem; }
+    .hero-actions {
+      margin-top: 3rem; display: flex; gap: 1rem; align-items: center;
     }
-    .hero h1 .highlight {
-      background: linear-gradient(135deg, var(--teal), var(--teal-light));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .hero p {
-      font-size: 1.1rem; color: var(--text-muted); max-width: 520px; line-height: 1.8;
-      margin-bottom: 2rem;
-    }
-    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn-primary {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--teal); color: #0a0a0f; padding: 0.85rem 2rem;
-      border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.95rem;
-      transition: all 0.2s; border: none; cursor: pointer;
+      background: var(--teal); color: #07070a; padding: 0.8rem 1.75rem;
+      border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.85rem;
+      transition: all 0.2s;
     }
-    .btn-primary:hover { background: var(--teal-light); transform: translateY(-2px); box-shadow: 0 8px 30px var(--teal-glow); }
-    .btn-secondary {
+    .btn-primary:hover { background: #2dd4bf; }
+    .btn-outline {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      background: transparent; color: var(--text); padding: 0.85rem 2rem;
-      border-radius: 10px; text-decoration: none; font-weight: 500; font-size: 0.95rem;
+      background: transparent; color: var(--text); padding: 0.8rem 1.75rem;
+      border-radius: 6px; text-decoration: none; font-weight: 400; font-size: 0.85rem;
       border: 1px solid var(--border); transition: all 0.2s;
     }
-    .btn-secondary:hover { border-color: var(--text-muted); background: rgba(255,255,255,0.03); }
-    .hero-visual { position: relative; }
-    .hero-card-stack {
-      position: relative; width: 100%; aspect-ratio: 4/3;
+    .btn-outline:hover { border-color: var(--text-muted); }
+
+    /* ===== SELECTED WORK ===== */
+    .work { padding: 8rem 0; }
+    .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
+    .work-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 2rem; transition: all 0.3s; text-decoration: none; display: block;
     }
-    .hero-card {
-      position: absolute; background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 16px; padding: 1.5rem; box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-      transition: transform 0.4s ease;
-    }
-    .hero-card:nth-child(1) { top: 10%; right: 5%; width: 60%; }
-    .hero-card:nth-child(2) { bottom: 5%; left: 5%; width: 55%; }
-    .hero-card-icon {
-      width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; margin-bottom: 0.75rem;
-    }
-    .hero-card:nth-child(1) .hero-card-icon { background: rgba(20,184,166,0.15); color: var(--teal); }
-    .hero-card:nth-child(2) .hero-card-icon { background: rgba(255,255,255,0.05); color: var(--text); }
-    .hero-card h4 { font-size: 0.95rem; margin-bottom: 0.25rem; }
-    .hero-card p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0; }
-    .hero-rating {
-      display: flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem;
-    }
-    .hero-stars { color: #fbbf24; font-size: 0.8rem; letter-spacing: 2px; }
+    .work-card:hover { border-color: rgba(20,184,166,0.2); transform: translateY(-2px); }
+    .work-card-tag { font-size: 0.65rem; color: var(--teal); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.75rem; }
+    .work-card h3 { font-size: 1.15rem; color: var(--text); margin-bottom: 0.3rem; }
+    .work-card p { font-size: 0.8rem; color: var(--text-dim); }
+    .work-card-year { font-size: 0.7rem; color: var(--text-dim); margin-top: 0.75rem; }
 
     /* ===== SERVICES ===== */
-    .services { background: var(--bg-card); }
-    .services-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem;
+    .services { padding: 8rem 0; border-top: 1px solid var(--border); }
+    .services-list { margin-top: 3rem; display: flex; flex-direction: column; gap: 2rem; }
+    .service-item {
+      display: grid; grid-template-columns: 3rem 1fr; gap: 2rem;
+      padding-bottom: 2rem; border-bottom: 1px solid var(--border);
     }
-    .service-card {
-      background: var(--bg); border: 1px solid var(--border); border-radius: 16px;
-      padding: 2rem; transition: all 0.3s; position: relative; overflow: hidden;
+    .service-item:last-child { border-bottom: none; }
+    .service-num { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 600; color: var(--text-dim); }
+    .service-item h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+    .service-item p { font-size: 0.85rem; color: var(--text-muted); max-width: 550px; line-height: 1.6; }
+    .service-features {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;
     }
-    .service-card:hover { border-color: rgba(20,184,166,0.2); transform: translateY(-2px); }
-    .service-card:hover .service-arrow { opacity: 1; transform: translate(2px, -2px); }
-    .service-card.featured {
-      border-color: rgba(20,184,166,0.25);
-      background: linear-gradient(135deg, rgba(20,184,166,0.04) 0%, transparent 100%);
-    }
-    .service-card.featured::before {
-      content: 'Recomendado'; position: absolute; top: 1rem; right: 1rem;
-      background: var(--teal); color: #0a0a0f; font-size: 0.7rem; font-weight: 600;
-      padding: 0.25rem 0.75rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em;
-    }
-    .service-icon {
-      width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; margin-bottom: 1.25rem;
-    }
-    .service-card:nth-child(1) .service-icon { background: rgba(20,184,166,0.12); color: var(--teal); }
-    .service-card:nth-child(2) .service-icon { background: rgba(255,255,255,0.06); color: var(--text); }
-    .service-card:nth-child(3) .service-icon { background: rgba(251,191,36,0.12); color: #fbbf24; }
-    .service-card:nth-child(4) .service-icon { background: rgba(168,85,247,0.12); color: #a855f7; }
-    .service-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
-    .service-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; }
-    .service-features { list-style: none; margin-top: 1.25rem; }
-    .service-features li {
-      display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;
-      padding: 0.4rem 0; color: var(--text-muted);
-    }
-    .service-features li::before {
-      content: '→'; color: var(--teal); font-weight: 600;
-    }
-    .service-arrow {
-      position: absolute; bottom: 1.5rem; right: 1.5rem; opacity: 0.3;
-      transition: all 0.3s; color: var(--text-muted); font-size: 1.2rem;
+    .service-features span {
+      font-size: 0.7rem; padding: 0.25rem 0.75rem;
+      border: 1px solid var(--border); border-radius: 4px; color: var(--text-dim);
     }
 
-    /* ===== HOW IT WORKS ===== */
-    .steps-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem;
+    /* ===== PROCESS ===== */
+    .process { padding: 8rem 0; background: var(--bg-card); }
+    .process-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .process-step { }
+    .process-step-num {
+      font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700;
+      color: var(--text-dim); margin-bottom: 0.75rem;
     }
-    .step { text-align: center; }
-    .step-number {
-      width: 48px; height: 48px; border-radius: 50%; margin: 0 auto 1rem;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem;
-      background: rgba(20,184,166,0.1); color: var(--teal); border: 1px solid rgba(20,184,166,0.2);
-    }
-    .step h4 { font-size: 1rem; margin-bottom: 0.5rem; }
-    .step p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+    .process-step h4 { font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .process-step p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
 
-    /* ===== PRICING ===== */
-    .pricing { background: var(--bg-card); }
-    .pricing-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem;
+    /* ===== ABOUT / MANIFESTO ===== */
+    .about { padding: 8rem 0; }
+    .about-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 4rem; align-items: start; }
+    .about-content h2 { margin-bottom: 1.5rem; }
+    .about-content p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1rem; }
+    .about-content .highlight-text {
+      font-size: 1rem; color: var(--text); font-weight: 500; line-height: 1.6;
+      border-left: 2px solid var(--teal); padding-left: 1.25rem; margin: 1.5rem 0;
     }
-    .pricing-card {
-      background: var(--bg); border: 1px solid var(--border); border-radius: 16px;
-      padding: 2.5rem 2rem; transition: all 0.3s; position: relative;
-    }
-    .pricing-card:hover { transform: translateY(-3px); border-color: rgba(20,184,166,0.2); }
-    .pricing-card.featured {
-      border-color: var(--teal); background: linear-gradient(135deg, rgba(20,184,166,0.06) 0%, transparent 100%);
-    }
-    .pricing-card.featured::before {
-      content: 'Más popular'; position: absolute; top: -0.75rem; left: 50%; transform: translateX(-50%);
-      background: var(--teal); color: #0a0a0f; font-size: 0.7rem; font-weight: 600;
-      padding: 0.25rem 1.25rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em;
-      white-space: nowrap;
-    }
-    .pricing-name { font-size: 1rem; color: var(--text-muted); margin-bottom: 0.75rem; }
-    .pricing-price { 
-      font-family: 'Space Grotesk', sans-serif; font-size: 1.75rem; font-weight: 700;
-      margin-bottom: 1.5rem;
-    }
-    .pricing-price span { font-size: 0.9rem; font-weight: 400; color: var(--text-muted); }
-    .pricing-features { list-style: none; margin-bottom: 2rem; }
-    .pricing-features li {
-      display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 0;
-      font-size: 0.85rem; color: var(--text-muted);
-    }
-    .pricing-features li::before {
-      content: '✓'; color: var(--teal); font-weight: 700;
-    }
-    .pricing-btn {
-      display: block; text-align: center; padding: 0.75rem;
-      border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.9rem;
-      border: 1px solid var(--border); color: var(--text); transition: all 0.2s;
-    }
-    .pricing-btn:hover { border-color: var(--teal); background: rgba(20,184,166,0.06); }
-    .pricing-card.featured .pricing-btn {
-      background: var(--teal); color: #0a0a0f; border-color: var(--teal);
-    }
-    .pricing-card.featured .pricing-btn:hover { background: var(--teal-light); }
+    .about-stats { display: flex; gap: 2.5rem; margin-top: 2rem; }
+    .about-stat { }
+    .about-stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--teal); }
+    .about-stat-label { font-size: 0.75rem; color: var(--text-dim); margin-top: 0.25rem; }
 
-    /* ===== WHY US ===== */
-    .why-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem;
-    }
-    .why-card {
+    /* ===== TESTIMONIALS ===== */
+    .testimonials { padding: 8rem 0; border-top: 1px solid var(--border); }
+    .testimonial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
+    .testimonial-card {
       background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
-      padding: 1.75rem; transition: all 0.3s;
+      padding: 2rem;
     }
-    .why-card:hover { border-color: rgba(20,184,166,0.15); }
-    .why-icon {
-      font-size: 1.5rem; margin-bottom: 0.75rem;
+    .testimonial-card blockquote {
+      font-size: 0.9rem; color: var(--text-muted); line-height: 1.7;
+      margin-bottom: 1.5rem; font-style: italic;
     }
-    .why-card h4 { font-size: 1rem; margin-bottom: 0.4rem; }
-    .why-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+    .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+    .testimonial-avatar {
+      width: 36px; height: 36px; border-radius: 50%; background: var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; color: var(--text-dim);
+    }
+    .testimonial-name { font-size: 0.85rem; font-weight: 500; color: var(--text); }
+    .testimonial-role { font-size: 0.7rem; color: var(--text-dim); }
 
-    /* ===== CONTACT / CTA ===== */
+    /* ===== FAQ ===== */
+    .faq { padding: 8rem 0; border-top: 1px solid var(--border); }
+    .faq-list { margin-top: 3rem; max-width: 720px; }
+    .faq-item {
+      border-bottom: 1px solid var(--border); padding: 1.25rem 0;
+    }
+    .faq-question {
+      display: flex; justify-content: space-between; align-items: center;
+      cursor: pointer; width: 100%; background: none; border: none;
+      font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 500;
+      color: var(--text); padding: 0; text-align: left;
+    }
+    .faq-question::after {
+      content: '+'; font-size: 1.1rem; color: var(--text-dim);
+      transition: transform 0.2s;
+    }
+    .faq-item.open .faq-question::after { content: '−'; }
+    .faq-answer {
+      max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 200px; padding-top: 0.75rem;
+    }
+    .faq-answer p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ===== CTA ===== */
     .cta-section {
-      text-align: center; padding: 6rem 0; position: relative; overflow: hidden;
+      padding: 8rem 0; text-align: center; position: relative;
     }
     .cta-section::before {
       content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-      width: 600px; height: 600px; background: radial-gradient(circle, rgba(20,184,166,0.06) 0%, transparent 70%);
+      width: 700px; height: 700px; background: radial-gradient(circle, var(--teal-glow) 0%, transparent 70%);
       pointer-events: none;
     }
-    .cta-section h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin-bottom: 1rem; }
-    .cta-section p { color: var(--text-muted); max-width: 500px; margin: 0 auto 2rem; }
-    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .cta-phone {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      color: var(--text-muted); text-decoration: none; font-size: 0.9rem; padding: 0.85rem 2rem;
-      border: 1px solid var(--border); border-radius: 10px; transition: all 0.2s;
-    }
-    .cta-phone:hover { border-color: var(--text-muted); color: var(--text); }
+    .cta-section h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+    .cta-section p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; }
 
     /* ===== FOOTER ===== */
     .footer {
-      border-top: 1px solid var(--border); padding: 2.5rem 0;
+      padding: 3rem 0; border-top: 1px solid var(--border);
     }
-    .footer-content {
-      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-      font-size: 0.85rem; color: var(--text-dim);
+    .footer-row {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.78rem; color: var(--text-dim);
     }
-    .footer-brand { display: flex; align-items: center; gap: 0.5rem; }
-    .footer-brand-mark {
-      width: 24px; height: 24px; border: 1.5px solid var(--teal); border-radius: 5px;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 0.6rem;
-      color: var(--teal);
-    }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text-muted); }
 
     /* ===== ANIMATIONS ===== */
-    .reveal {
-      opacity: 0; transform: translateY(30px); transition: all 0.7s ease;
-    }
+    .reveal { opacity: 0; transform: translateY(24px); transition: all 0.6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-d1 { transition-delay: 0.08s; }
+    .reveal-d2 { transition-delay: 0.16s; }
+    .reveal-d3 { transition-delay: 0.24s; }
+    .reveal-d4 { transition-delay: 0.32s; }
+    .reveal-d5 { transition-delay: 0.40s; }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 968px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .hero-visual { display: none; }
-      .services-grid { grid-template-columns: 1fr; }
-      .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
-      .steps-grid { grid-template-columns: repeat(2, 1fr); }
-      .why-grid { grid-template-columns: 1fr; }
+      .hero-row { grid-template-columns: 1fr; }
+      .hero-side { text-align: left; }
+      .work-grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: repeat(3, 1fr); }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .testimonial-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       .nav-links.open {
         display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0;
-        background: rgba(10,10,15,0.98); backdrop-filter: blur(20px); padding: 2rem;
-        border-bottom: 1px solid var(--border); gap: 1.5rem; align-items: stretch;
+        background: rgba(7,7,10,0.98); backdrop-filter: blur(20px); padding: 2rem;
+        border-bottom: 1px solid var(--border); gap: 1rem; align-items: stretch;
       }
-      .nav-links.open .nav-cta { text-align: center; justify-content: center; }
       .mobile-toggle { display: flex; }
-      .section { padding: 4rem 0; }
+      .about-stats { gap: 1.5rem; }
     }
     @media (max-width: 640px) {
       .container { padding: 0 1.25rem; }
-      .steps-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 2rem; }
+      .process-grid { grid-template-columns: 1fr; }
+      .about-stats { flex-direction: column; gap: 1rem; }
+      .footer-row { flex-direction: column; gap: 1rem; text-align: center; }
     }
 
-    /* ===== LOADING BAR ===== */
+    /* ===== LOADING ===== */
     .loading-bar {
-      position: fixed; top: 0; left: 0; width: 0; height: 2px; z-index: 999;
-      background: linear-gradient(90deg, var(--teal), var(--teal-light), var(--teal));
-      animation: loadingBar 0.8s ease forwards; pointer-events: none;
+      position: fixed; top: 0; left: 0; height: 2px; z-index: 999;
+      background: linear-gradient(90deg, var(--teal), #2dd4bf, var(--teal));
+      animation: load 0.6s ease forwards; pointer-events: none;
     }
-    @keyframes loadingBar {
-      0% { width: 0; }
-      50% { width: 70%; }
-      100% { width: 100%; }
-    }
+    @keyframes load { 0% { width: 0; } 100% { width: 100%; } }
   </style>
 </head>
 <body>
 
 <div class="loading-bar"></div>
 <div class="bg-glow"></div>
-<div class="noise-overlay"></div>
 
 <!-- ===== NAVBAR ===== -->
 <nav class="navbar" id="navbar">
   <div class="container">
-    <a href="#" class="nav-logo">
-      <div class="nav-logo-mark">R</div>
-      <div class="nav-logo-text">Rangel<span>.</span></div>
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#precios">Precios</a></li>
-      <li><a href="#como-funciona">Proceso</a></li>
-      <li><a href="#contacto" class="nav-cta">Agendar llamada →</a></li>
-    </ul>
-    <div class="mobile-toggle" id="mobileToggle" aria-label="Menú">
-      <span></span><span></span><span></span>
+    <a href="#" class="nav-logo">Rangel<span>.</span></a>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#process">Proceso</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a href="#contacto" class="nav-cta">Proyecto →</a>
+      <div class="mobile-toggle" id="mobileToggle" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </div>
     </div>
   </div>
 </nav>
@@ -425,260 +341,277 @@
   <!-- ===== HERO ===== -->
   <section class="hero" id="inicio">
     <div class="container">
-      <div class="hero-grid">
+      <div class="hero-row">
         <div>
           <div class="hero-badge">
             <span class="hero-badge-dot"></span>
-            Estudio de Diseño y Tecnología
+            <span>Independent Digital Design Studio</span>
           </div>
           <h1>
-            Transformamos tu negocio en<br />
-            <span class="highlight">una máquina de ventas</span>
+            Sitios web modernos<br />
+            para marcas <span class="accent">ambiciosas</span>
           </h1>
-          <p>
-            Diseñamos páginas web que convierten, atraemos clientes con
-            anuncios inteligentes y automatizamos tu atención con IA.
-            Todo en un solo lugar.
+          <p class="hero-tagline">
+            Diseño páginas web de alto rendimiento que combinan
+            estrategia, estética y tecnología para ayudar a tu negocio
+            a crecer y vender más.
           </p>
-          <div class="hero-buttons">
-            <a href="#contacto" class="btn-primary">Agendar consulta →</a>
-            <a href="#servicios" class="btn-secondary">Ver servicios</a>
+          <div class="hero-actions">
+            <a href="#contacto" class="btn-primary">Iniciar proyecto →</a>
+            <a href="#work" class="btn-outline">Ver trabajos</a>
           </div>
         </div>
-        <div class="hero-visual">
-          <div class="hero-card-stack">
-            <div class="hero-card">
-              <div class="hero-card-icon">🖥</div>
-              <h4>Web + Meta Ads</h4>
-              <p>Listo en 10 días. Resultados desde el día 1.</p>
-              <div class="hero-rating">
-                <span class="hero-stars">★★★★★</span>
-                <span style="font-size:0.75rem;color:var(--text-muted);">4.9 · 38 reseñas</span>
-              </div>
-            </div>
-            <div class="hero-card">
-              <div class="hero-card-icon">⚡</div>
-              <h4>+47% en leads</h4>
-              <p>En los primeros 30 días con nuestros servicios.</p>
-            </div>
-          </div>
+        <div class="hero-side">
+          <div class="year">RDS © 2026</div>
+          <div class="location">DISPONIBLE GLOBAL<br />SANTIAGO, CHILE</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SELECTED WORK ===== -->
+  <section class="work" id="work">
+    <div class="container">
+      <div class="label-teal">Selected Work (04)</div>
+      <div class="work-grid">
+        <a class="work-card reveal" href="#contacto">
+          <div class="work-card-tag">Branding & Web</div>
+          <h3>Neolith Systems</h3>
+          <p>Identidad digital y sitio web corporativo</p>
+          <div class="work-card-year">2026</div>
+        </a>
+        <a class="work-card reveal reveal-d1" href="#contacto">
+          <div class="work-card-tag">E-commerce</div>
+          <h3>Aura Labs</h3>
+          <p>Plataforma de ventas con IA integrada</p>
+          <div class="work-card-year">2026</div>
+        </a>
+        <a class="work-card reveal reveal-d2" href="#contacto">
+          <div class="work-card-tag">Web App</div>
+          <h3>Velocity VC</h3>
+          <p>Dashboard interactivo para portafolio</p>
+          <div class="work-card-year">2025</div>
+        </a>
+        <a class="work-card reveal reveal-d3" href="#contacto">
+          <div class="work-card-tag">Experience</div>
+          <h3>Kinetic Studio</h3>
+          <p>Experiencia web inmersiva con animaciones</p>
+          <div class="work-card-year">2025</div>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- ===== SERVICES ===== -->
-  <section class="services section" id="servicios">
+  <section class="services" id="servicios">
     <div class="container">
-      <div class="section-label">Servicios</div>
-      <h2 class="section-title">Todo lo que necesitas<br />para vender online</h2>
-      <p class="section-subtitle">
-        Desde tu página web hasta la atención al cliente automatizada.
-        Servicios diseñados para que tu negocio crezca sin complicaciones.
-      </p>
+      <div class="label-teal">Servicios</div>
+      <h2 class="section-title">
+        Soluciones digitales a medida<br />
+        que conectan diseño y resultados.
+      </h2>
 
-      <div class="services-grid">
-        <!-- Service 1: Diseño Web -->
-        <div class="service-card reveal">
-          <div class="service-icon">🖥</div>
-          <h3>Diseño Web Profesional</h3>
-          <p>
-            Sitios web modernos, rápidos y optimizados para convertir
-            visitantes en clientes. Diseño responsivo, SEO incluido.
-          </p>
-          <ul class="service-features">
-            <li>Diseño UI/UX personalizado</li>
-            <li>Optimizado para Google (SEO)</li>
-            <li>Carga rápida (core web vitals)</li>
-            <li>Panel administrable</li>
-          </ul>
-          <span class="service-arrow">→</span>
+      <div class="services-list">
+        <div class="service-item reveal">
+          <div class="service-num">01</div>
+          <div>
+            <h3>Diseño Web</h3>
+            <p>UI/UX de calidad editorial que capta la atención y convierte visitantes en clientes leales. Sitios rápidos, responsivos y optimizados para SEO.</p>
+            <div class="service-features">
+              <span>Landing page</span>
+              <span>Corporativo</span>
+              <span>E-commerce</span>
+              <span>SEO incluido</span>
+            </div>
+          </div>
         </div>
 
-        <!-- Service 2: Ads -->
-        <div class="service-card reveal reveal-delay-1">
-          <div class="service-icon">📈</div>
-          <h3>Adquisición de Clientes</h3>
-          <p>
-            Campañas de Google Ads y Meta Ads para atraer clientes
-            potenciales que buscan exactamente lo que ofreces.
-          </p>
-          <ul class="service-features">
-            <li>Google Ads (búsqueda + display)</li>
-            <li>Meta Ads (Instagram + Facebook)</li>
-            <li>Segmentación geográfica y por rubro</li>
-            <li>Optimización semanal de campañas</li>
-          </ul>
-          <span class="service-arrow">→</span>
+        <div class="service-item reveal reveal-d1">
+          <div class="service-num">02</div>
+          <div>
+            <h3>Adquisición de Clientes</h3>
+            <p>Campañas en Google Ads y Meta Ads diseñadas para atraer clientes potenciales que buscan exactamente lo que ofreces. Segmentación precisa y optimización constante.</p>
+            <div class="service-features">
+              <span>Google Ads</span>
+              <span>Meta Ads</span>
+              <span>Segmentación</span>
+              <span>Optimización</span>
+            </div>
+          </div>
         </div>
 
-        <!-- Service 3: Complete System (featured) -->
-        <div class="service-card featured reveal reveal-delay-2">
-          <div class="service-icon">🚀</div>
-          <h3>Sistema Completo</h3>
-          <p>
-            La solución integral: página web profesional + campañas
-            de publicidad. De principio a fin, nos encargamos de todo.
-          </p>
-          <ul class="service-features">
-            <li>Página web + SEO</li>
-            <li>Campañas Google + Meta Ads</li>
-            <li>Dashboard de resultados en vivo</li>
-            <li>Soporte prioritario 7 días</li>
-          </ul>
-          <span class="service-arrow">→</span>
+        <div class="service-item reveal reveal-d2">
+          <div class="service-num">03</div>
+          <div>
+            <h3>Sistema Completo</h3>
+            <p>El paquete integral: página web profesional más campañas de publicidad. De principio a fin, nos encargamos de todo para que tu negocio venda 24/7.</p>
+            <div class="service-features">
+              <span>Web + Ads</span>
+              <span>Dashboard</span>
+              <span>Soporte 7 días</span>
+              <span>Resultados</span>
+            </div>
+          </div>
         </div>
 
-        <!-- Service 4: AI Automation -->
-        <div class="service-card reveal reveal-delay-3">
-          <div class="service-icon">🤖</div>
-          <h3>Automatizaciones con IA</h3>
-          <p>
-            Agenda llamadas, califica leads y atiende clientes 24/7
-            con asistentes inteligentes. Nunca pierdas una venta.
-          </p>
-          <ul class="service-features">
-            <li>Agendamiento automático de llamadas</li>
-            <li>Chatbot IA para atención 24/7</li>
-            <li>Calificación y seguimiento de leads</li>
-            <li>CRM integrado</li>
-          </ul>
-          <span class="service-arrow">→</span>
+        <div class="service-item reveal reveal-d3">
+          <div class="service-num">04</div>
+          <div>
+            <h3>Automatizaciones con IA</h3>
+            <p>Conecta tus activos digitales con flujos inteligentes que ahorran horas de trabajo. Chatbot 24/7, agendamiento automático y CRM para no perder ninguna venta.</p>
+            <div class="service-features">
+              <span>Chatbot IA</span>
+              <span>Agendamiento</span>
+              <span>CRM</span>
+              <span>Lead scoring</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== HOW IT WORKS ===== -->
-  <section class="section" id="como-funciona">
+  <!-- ===== PROCESS ===== -->
+  <section class="process" id="process">
     <div class="container">
-      <div class="section-label">Proceso</div>
+      <div class="label-teal">Proceso simple</div>
       <h2 class="section-title">Cómo trabajamos</h2>
-      <p class="section-subtitle">
-        Un proceso claro y probado. Desde la primera llamada hasta los
-        resultados medibles.
-      </p>
 
-      <div class="steps-grid">
-        <div class="step reveal">
-          <div class="step-number">1</div>
-          <h4>Diagnóstico</h4>
-          <p>Entendemos tu negocio, tu mercado y a tus competidores en una sesión de 30 minutos.</p>
+      <div class="process-grid">
+        <div class="process-step reveal">
+          <div class="process-step-num">01</div>
+          <h4>Descubrimiento</h4>
+          <p>Investigación profunda de tu marca, audiencia y objetivos para construir una base sólida.</p>
         </div>
-        <div class="step reveal reveal-delay-1">
-          <div class="step-number">2</div>
+        <div class="process-step reveal reveal-d1">
+          <div class="process-step-num">02</div>
           <h4>Estrategia</h4>
-          <p>Diseñamos el plan: web, anuncios y automatizaciones alineados con tus objetivos.</p>
+          <p>Mapeo del viaje del usuario y arquitectura del sitio para que cada clic tenga un propósito.</p>
         </div>
-        <div class="step reveal reveal-delay-2">
-          <div class="step-number">3</div>
-          <h4>Ejecución</h4>
-          <p>Construimos, lanzamos y optimizamos. Todo en menos de 10 días hábiles.</p>
+        <div class="process-step reveal reveal-d2">
+          <div class="process-step-num">03</div>
+          <h4>Diseño</h4>
+          <p>Creación de conceptos visuales de alta fidelidad que reflejan la personalidad única de tu marca.</p>
         </div>
-        <div class="step reveal reveal-delay-3">
-          <div class="step-number">4</div>
-          <h4>Resultados</h4>
-          <p>Monitoreamos, ajustamos y escalamos. Tu negocio crece, nosotros trabajamos.</p>
+        <div class="process-step reveal reveal-d3">
+          <div class="process-step-num">04</div>
+          <h4>Desarrollo</h4>
+          <p>Código limpio, animaciones fluidas y responsive perfecto en todos los dispositivos.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PRICING ===== -->
-  <section class="pricing section" id="precios">
-    <div class="container">
-      <div class="section-label">Inversión</div>
-      <h2 class="section-title">Planes claros,<br />sin sorpresas</h2>
-      <p class="section-subtitle">
-        Precios fijos. Sin costos ocultos. Elige el plan que mejor se
-        adapte a tu negocio.
-      </p>
-
-      <div class="pricing-grid">
-        <div class="pricing-card reveal">
-          <div class="pricing-name">Web</div>
-          <div class="pricing-price">$499 <span>USD</span></div>
-          <ul class="pricing-features">
-            <li>Página web profesional (5 secciones)</li>
-            <li>Diseño responsivo</li>
-            <li>SEO básico</li>
-            <li>Hosting 1 mes gratis</li>
-            <li>Formulario de contacto</li>
-          </ul>
-          <a href="#contacto" class="pricing-btn">Lo quiero →</a>
-        </div>
-
-        <div class="pricing-card featured reveal reveal-delay-1">
-          <div class="pricing-name">Sistema Completo</div>
-          <div class="pricing-price">$999 <span>USD</span></div>
-          <ul class="pricing-features">
-            <li>Página web completa</li>
-            <li>Campaña Google Ads (setup)</li>
-            <li>Campaña Meta Ads (setup)</li>
-            <li>SEO avanzado on-page</li>
-            <li>Dashboard de resultados</li>
-            <li>Soporte prioritario 7 días</li>
-          </ul>
-          <a href="#contacto" class="pricing-btn">Lo quiero →</a>
-        </div>
-
-        <div class="pricing-card reveal reveal-delay-2">
-          <div class="pricing-name">IA + Automatización</div>
-          <div class="pricing-price">$1,499 <span>USD</span></div>
-          <ul class="pricing-features">
-            <li>Sistema Completo incluido</li>
-            <li>Chatbot IA 24/7</li>
-            <li>Agendamiento automático</li>
-            <li>CRM con seguimiento</li>
-            <li>Capacitación del equipo</li>
-            <li>Soporte 24/7</li>
-          </ul>
-          <a href="#contacto" class="pricing-btn">Lo quiero →</a>
+        <div class="process-step reveal reveal-d4">
+          <div class="process-step-num">05</div>
+          <h4>Lanzamiento</h4>
+          <p>Testing final, optimización SEO y deploy. Celebramos juntos tu nueva casa digital.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== WHY US ===== -->
-  <section class="section">
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about">
     <div class="container">
-      <div class="section-label">Por qué RDS</div>
-      <h2 class="section-title">No solo diseñamos,<br />construimos resultados</h2>
-      <p class="section-subtitle">
-        Detrás de cada proyecto hay un equipo que entiende de ventas,
-        tecnología y diseño.
-      </p>
+      <div class="about-grid">
+        <div class="about-content reveal">
+          <div class="label-teal">Sobre RDS</div>
+          <h2 class="section-title">
+            El diseño es solo<br />
+            el comienzo
+          </h2>
+          <p>
+            Creo que un sitio web no solo debe verse bien — debe ser un
+            activo estratégico que impulse el crecimiento de tu negocio.
+            Mi enfoque combina precisión estética con rendimiento técnico
+            para crear experiencias digitales que realmente conectan.
+          </p>
+          <div class="highlight-text">
+            "Cada decisión de diseño está alineada con lo que realmente
+            importa: que tu negocio venda más."
+          </div>
+          <p>
+            Basado en Santiago y trabajando con clientes a nivel global,
+            ofrezco una experiencia boutique donde trabajas directamente
+            con el director creativo en cada fase del proyecto.
+          </p>
+        </div>
+        <div class="about-stats-row reveal reveal-d1">
+          <div class="about-stats">
+            <div class="about-stat">
+              <div class="about-stat-num">40+</div>
+              <div class="about-stat-label">Proyectos entregados</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-num">4.9★</div>
+              <div class="about-stat-label">Calificación promedio</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-num">10</div>
+              <div class="about-stat-label">Días promedio entrega</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <div class="why-grid">
-        <div class="why-card reveal">
-          <div class="why-icon">🎯</div>
-          <h4>Enfoque en resultados</h4>
-          <p>Cada decisión de diseño está alineada con lo que realmente importa: que tu negocio venda más.</p>
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials" id="testimonios">
+    <div class="container">
+      <div class="label-teal">Testimonios</div>
+      <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card reveal">
+          <blockquote>
+            "Rangel entregó un sitio que superó nuestras expectativas.
+            La atención al detalle es simplemente inigualable en la industria."
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MR</div>
+            <div>
+              <div class="testimonial-name">Marcus Reed</div>
+              <div class="testimonial-role">Founder, Neolith</div>
+            </div>
+          </div>
         </div>
-        <div class="why-card reveal reveal-delay-1">
-          <div class="why-icon">⚡</div>
-          <h4>Rapidez real</h4>
-          <p>Tu sitio web listo en 7-10 días. Campañas activas desde el día de lanzamiento.</p>
+        <div class="testimonial-card reveal reveal-d1">
+          <blockquote>
+            "Trabajar con un especialista marca toda la diferencia.
+            Nuestra tasa de conversión aumentó un 40% el primer mes."
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SC</div>
+            <div>
+              <div class="testimonial-name">Sarah Chen</div>
+              <div class="testimonial-role">CEO, Aura Labs</div>
+            </div>
+          </div>
         </div>
-        <div class="why-card reveal reveal-delay-2">
-          <div class="why-icon">🔧</div>
-          <h4>Sin tecnicismos</h4>
-          <p>Te explicamos todo en tu idioma. Sin rollos de código ni jerga innecesaria.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="label-teal">FAQ</div>
+      <h2 class="section-title">Preguntas frecuentes</h2>
+
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question">¿Cuál es la duración típica de un proyecto?</button>
+          <div class="faq-answer"><p>La mayoría de los proyectos toman entre 1 a 3 semanas desde el inicio hasta el lanzamiento. Depende del alcance y la complejidad de los requisitos.</p></div>
         </div>
-        <div class="why-card reveal reveal-delay-3">
-          <div class="why-icon">🤝</div>
-          <h4>Partner, no proveedor</h4>
-          <p>Trabajamos contigo codo a codo. Tu éxito es nuestro éxito. Siempre disponibles.</p>
+        <div class="faq-item reveal reveal-d1">
+          <button class="faq-question">¿Cuánto cobras por una página web?</button>
+          <div class="faq-answer"><p>Trabajo con presupuesto fijo por proyecto. Desde $499 USD para sitios básicos hasta $1,499 USD para sistemas completos con IA y automatizaciones.</p></div>
         </div>
-        <div class="why-card reveal reveal-delay-4">
-          <div class="why-icon">📊</div>
-          <h4>Datos en vivo</h4>
-          <p>Dashboard con métricas reales. Sabes exactamente qué está funcionando y qué mejorar.</p>
+        <div class="faq-item reveal reveal-d2">
+          <button class="faq-question">¿Ofrecen soporte después del lanzamiento?</button>
+          <div class="faq-answer"><p>Sí. Todos los planes incluyen soporte post-lanzamiento. Ofrezco retainers mensuales para mantenimiento, optimización y soporte continuo.</p></div>
         </div>
-        <div class="why-card reveal reveal-delay-4">
-          <div class="why-icon">🔄</div>
-          <h4>Escalabilidad</h4>
-          <p>Empieza con lo que necesitas hoy. Tu plan crece con tu negocio, sin migraciones traumáticas.</p>
+        <div class="faq-item reveal reveal-d3">
+          <button class="faq-question">¿Trabajan con clientes fuera de Chile?</button>
+          <div class="faq-answer"><p>Sí. Trabajo con clientes de toda Latinoamérica y Estados Unidos. Gestiono las diferencias horarias a través de comunicación asíncrona eficiente.</p></div>
         </div>
       </div>
     </div>
@@ -687,23 +620,12 @@
   <!-- ===== CTA ===== -->
   <section class="cta-section" id="contacto">
     <div class="container">
-      <div class="section-label" style="justify-content:center;">Contacto</div>
-      <h2>Hablemos de tu proyecto</h2>
-      <p>
-        Una llamada de 15 minutos es suficiente para entender tu negocio
-        y proponerte el plan ideal. Sin compromiso.
-      </p>
+      <div class="label-teal" style="margin-bottom:1rem;">Contacto</div>
+      <h2>¿Listo para construir<br />algo extraordinario?</h2>
+      <p>Una llamada de 15 minutos basta para entender tu negocio<br />y proponerte el plan ideal. Sin compromiso.</p>
       <div class="cta-buttons">
-        <a href="https://wa.me/56912345678?text=Hola%20RDS,%20quiero%20una%20consulta" target="_blank" rel="noopener" class="btn-primary">
-          WhatsApp →
-        </a>
-        <a href="tel:+56912345678" class="cta-phone">
-          📞 +56 9 1234 5678
-        </a>
+        <a href="https://wa.me/56912345678?text=Hola%20RDS,%20quiero%20una%20consulta" target="_blank" rel="noopener" class="btn-primary">Iniciar proyecto →</a>
       </div>
-      <p style="margin-top:2rem;font-size:0.8rem;color:var(--text-dim);">
-        📍 Santiago, Chile · Atención de lunes a sábado
-      </p>
     </div>
   </section>
 </main>
@@ -711,67 +633,64 @@
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
   <div class="container">
-    <div class="footer-content">
-      <div class="footer-brand">
-        <div class="footer-brand-mark">R</div>
-        <span>Rangel Design System © 2026</span>
+    <div class="footer-row">
+      <span>RANGEL DESIGN SYSTEM © 2026 — Santiago, Chile</span>
+      <div class="footer-links">
+        <a href="#">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#faq">FAQ</a>
       </div>
-      <span>Hecho en Chile 🇨🇱</span>
     </div>
   </div>
 </footer>
 
-<!-- ===== SCRIPTS ===== -->
 <script>
   // === Navbar scroll ===
   const navbar = document.getElementById('navbar');
-  let lastScroll = 0;
   window.addEventListener('scroll', () => {
-    const current = window.scrollY;
-    if (current > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-    lastScroll = current;
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
   });
 
-  // === Mobile menu ===
+  // === Mobile toggle ===
   const toggle = document.getElementById('mobileToggle');
   const links = document.getElementById('navLinks');
   toggle.addEventListener('click', () => {
     toggle.classList.toggle('active');
     links.classList.toggle('open');
   });
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
       toggle.classList.remove('active');
       links.classList.remove('open');
     });
   });
 
   // === Scroll reveals ===
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  // === FAQ accordion ===
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
 
-  // === Smooth scroll for anchor links ===
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+  // === Smooth scroll ===
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
       if (href === '#') return;
       e.preventDefault();
       const target = document.querySelector(href);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 </script>
