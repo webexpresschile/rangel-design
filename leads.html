@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leads - Panel de Llamadas</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0C0C0D;
+  --surface: #111214;
+  --text: #F5F5F5;
+  --text2: #A7A7A7;
+  --accent: #08348C;
+  --border: rgba(255,255,255,0.08);
+  --green: #22c55e;
+  --amber: #f59e0b;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+.header {
+  padding: 40px 32px 24px;
+  border-bottom: 1px solid var(--border);
+}
+.header h1 { font-size: 1.75rem; font-weight: 600; margin-bottom: 4px; }
+.header p { color: var(--text2); font-size: 0.875rem; }
+.stats {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 20px;
+}
+.stat-card .num { font-size: 1.5rem; font-weight: 700; }
+.stat-card .label { font-size: 0.75rem; color: var(--text2); text-transform: uppercase; letter-spacing: 0.05em; }
+
+.filters {
+  display: flex;
+  gap: 12px;
+  padding: 16px 32px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  align-items: center;
+}
+.filters select, .filters input {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-family: inherit;
+}
+.filters select:focus, .filters input:focus { outline: none; border-color: var(--accent); }
+.search-input { min-width: 200px; }
+.count-badge { font-size: 0.75rem; color: var(--text2); margin-left: 8px; }
+
+.leads-list {
+  padding: 16px 32px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.lead-row {
+  display: grid;
+  grid-template-columns: 1fr 120px 80px 100px 100px;
+  gap: 12px;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  transition: all 0.2s;
+}
+.lead-row:hover { border-color: var(--accent); }
+.lead-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lead-phone {
+  font-size: 0.8125rem;
+  color: var(--text2);
+  font-family: monospace;
+}
+.call-btn {
+  background: var(--green);
+  color: #000;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
+}
+.call-btn:hover { opacity: 0.85; }
+.lead-niche {
+  font-size: 0.6875rem;
+  padding: 2px 8px;
+  border-radius: 100px;
+  background: rgba(8,52,140,0.2);
+  color: var(--accent);
+  text-align: center;
+  font-weight: 500;
+}
+.lead-city {
+  font-size: 0.75rem;
+  color: var(--text2);
+  text-align: center;
+}
+.empty { 
+  padding: 60px 32px;
+  text-align: center;
+  color: var(--text2);
+}
+.script-box {
+  margin: 16px 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+}
+.script-box h3 { font-size: 0.875rem; font-weight: 600; margin-bottom: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; }
+.script-box p { font-size: 0.875rem; line-height: 1.7; color: var(--text2); }
+.script-box .lang { font-size: 0.6875rem; color: var(--accent); text-transform: uppercase; font-weight: 600; margin-top: 16px; margin-bottom: 4px; }
+
+@media (max-width: 768px) {
+  .lead-row {
+    grid-template-columns: 1fr 90px;
+    gap: 8px;
+  }
+  .lead-niche, .lead-city { display: none; }
+  .header { padding: 24px 16px; }
+  .filters { padding: 12px 16px; }
+  .leads-list { padding: 12px 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📋 Leads — Llamadas</h1>
+  <p>Panel de leads con teléfono válido. Pulsa "Llamar" para marcar desde tu teléfono.</p>
+  <div class="stats" id="stats"></div>
+</div>
+
+<div class="filters">
+  <select id="nicheFilter">
+    <option value="">Todos los rubros</option>
+  </select>
+  <select id="cityFilter">
+    <option value="">Todas las ciudades</option>
+  </select>
+  <input type="text" id="searchInput" class="search-input" placeholder="🔍 Buscar por nombre...">
+  <span class="count-badge" id="countBadge"></span>
+</div>
+
+<div class="script-box" id="scriptBox">
+  <h3>📞 Speech de Venta (15-20 segundos)</h3>
+  <div class="lang">ESPAÑOL</div>
+  <p>
+    "Hola [nombre], soy Armando Rangel, de RANGEL DESIGN. <strong>Te llamo porque veo que tu negocio está en [ciudad] y quería comentarte algo rápido.</strong><br><br>
+    Hoy estamos ayudando a empresas como la tuya a conseguir <strong>clientes nuevos con publicidad en Google y Meta</strong> — sin necesidad de tener página web. <strong>Trabajamos con resultados medibles, desde $150.000 mensuales.</strong><br><br>
+    ¿Te puedo enviar un par de ejemplos de negocios similares que ya están facturando con esto?"
+  </p>
+  <div class="lang">ENGLISH (si llamas a negocio internacional)</div>
+  <p>
+    "Hi [name], this is Armando from RANGEL DESIGN. I'm reaching out because I'm helping businesses in [city] get <strong>more customers through Google and Meta advertising</strong> — no website required. We work with measurable results starting at $150/month. Can I send you a quick example of how this works?"
+  </p>
+</div>
+
+<div class="leads-list" id="leadsList"></div>
+
+<script>
+// Load leads from JSON
+let allLeads = [];
+
+async function loadLeads() {
+  try {
+    const res = await fetch('leads.json');
+    allLeads = await res.json();
+    render();
+  } catch(e) {
+    document.getElementById('leadsList').innerHTML = 
+      `<div class="empty">⚠️ No pude cargar los leads. Asegúrate de que leads.json está en el mismo directorio.</div>`;
+  }
+}
+
+function render() {
+  const nicheFilter = document.getElementById('nicheFilter').value;
+  const cityFilter = document.getElementById('cityFilter').value;
+  const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+
+  let filtered = allLeads.filter(l => {
+    if (nicheFilter && l.niche !== nicheFilter) return false;
+    if (cityFilter && l.city !== cityFilter) return false;
+    if (searchTerm && !l.name.toLowerCase().includes(searchTerm)) return false;
+    return true;
+  });
+
+  // Stats
+  const niches = [...new Set(allLeads.map(l => l.niche).filter(Boolean))].sort();
+  const cities = [...new Set(allLeads.map(l => l.city).filter(Boolean))].sort();
+
+  document.getElementById('stats').innerHTML = `
+    <div class="stat-card"><div class="num">${allLeads.length}</div><div class="label">Total Leads</div></div>
+    <div class="stat-card"><div class="num">${filtered.length}</div><div class="label">Filtrados</div></div>
+  `;
+
+  // Populate filter dropdowns
+  const nicheSelect = document.getElementById('nicheFilter');
+  const currentNiche = nicheSelect.value;
+  nicheSelect.innerHTML = '<option value="">Todos los rubros</option>' + 
+    niches.map(n => `<option value="${n}" ${n === currentNiche ? 'selected' : ''}>${n}</option>`).join('');
+
+  const citySelect = document.getElementById('cityFilter');
+  const currentCity = citySelect.value;
+  citySelect.innerHTML = '<option value="">Todas las ciudades</option>' + 
+    cities.map(c => `<option value="${c}" ${c === currentCity ? 'selected' : ''}>${c}</option>`).join('');
+
+  document.getElementById('countBadge').textContent = `${filtered.length} de ${allLeads.length} leads`;
+
+  // Render rows
+  if (filtered.length === 0) {
+    document.getElementById('leadsList').innerHTML = '<div class="empty">No hay leads con esos filtros</div>';
+    return;
+  }
+
+  document.getElementById('leadsList').innerHTML = filtered.map(l => `
+    <div class="lead-row">
+      <div class="lead-name">${l.name || '—'}</div>
+      <div class="lead-phone">+${l.phone}</div>
+      <a href="tel:+${l.phone}" class="call-btn">📞 Llamar</a>
+      <div class="lead-niche">${l.niche || '—'}</div>
+      <div class="lead-city">${l.city || '—'}</div>
+    </div>
+  `).join('');
+}
+
+// Event listeners
+document.getElementById('nicheFilter').addEventListener('change', render);
+document.getElementById('cityFilter').addEventListener('change', render);
+document.getElementById('searchInput').addEventListener('input', render);
+
+loadLeads();
+</script>
+
+</body>
+</html>
