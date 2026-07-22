@@ -4,332 +4,205 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RANGEL DESIGN SYSTEM — RDS</title>
-  <meta name="description" content="Diseño web, adquisición de clientes y automatizaciones IA. Estudio independiente con base en Santiago, Chile." />
+  <meta name="description" content="Diseño web, adquisición de clientes y automatizaciones IA. Estudio independiente en Santiago, Chile." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
   <style>
-    /* ===== RESET ===== */
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #07070a;
-      color: #e8e8ed;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 600; letter-spacing: -0.03em; }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;cursor:none}
+    body{font-family:'Inter',sans-serif;background:#07070a;color:#e8e8ed;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-0.03em}
 
-    /* ===== TOKENS ===== */
-    :root {
-      --teal: #14b8a6;
-      --teal-dim: rgba(20,184,166,0.12);
-      --teal-glow: rgba(20,184,166,0.08);
-      --bg: #07070a;
-      --bg-card: #0c0c12;
-      --bg-elevated: #111118;
-      --border: #1a1a26;
-      --text: #e8e8ed;
-      --text-muted: #8888a0;
-      --text-dim: #55556a;
-      --max-w: 1200px;
-    }
+    :root{--teal:#14b8a6;--teal-dim:rgba(20,184,166,0.12);--teal-glow:rgba(20,184,166,0.08);--teal-soft:rgba(20,184,166,0.05);--bg:#07070a;--bg-card:#0c0c12;--bg-elevated:#111118;--border:#1a1a26;--text:#e8e8ed;--text-muted:#8888a0;--text-dim:#55556a;--max-w:1200px}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 2rem}
+    h2.section-title{font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.1}
+    .text-muted{color:var(--text-muted)}
+    .label-teal{font-family:'Inter',sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--teal);margin-bottom:1rem}
 
-    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
+    /* === CUSTOM CURSOR === */
+    .cursor-dot{position:fixed;width:8px;height:8px;background:var(--teal);border-radius:50%;pointer-events:none;z-index:9999;transition:transform 0.1s;transform:translate(-50%,-50%)}
+    .cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid rgba(20,184,166,0.3);border-radius:50%;pointer-events:none;z-index:9998;transition:width 0.3s,height 0.3s,border-color 0.3s,transform 0.1s;transform:translate(-50%,-50%)}
+    .cursor-ring.hover{width:56px;height:56px;border-color:var(--teal);background:rgba(20,184,166,0.06)}
 
-    /* ===== TYPOGRAPHY ===== */
-    h2.section-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.1; }
-    .text-muted { color: var(--text-muted); }
-    .text-dim { color: var(--text-dim); }
-    .label-sm {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em;
-      color: var(--text-dim); margin-bottom: 1.5rem;
-    }
-    .label-teal {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em;
-      color: var(--teal); margin-bottom: 1rem;
-    }
+    /* === BG EFFECTS === */
+    .bg-glow{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 900px 500px at 15% 10%,rgba(20,184,166,0.03) 0%,transparent 60%),radial-gradient(ellipse 700px 700px at 80% 50%,rgba(20,184,166,0.02) 0%,transparent 60%)}
+    .floating-shapes{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+    .shape{position:absolute;border:1px solid rgba(20,184,166,0.06);border-radius:50%}
 
-    /* ===== BACKGROUND ===== */
-    .bg-glow {
-      position: fixed; inset: 0; pointer-events: none; z-index: 0;
-      background:
-        radial-gradient(ellipse 900px 500px at 15% 10%, rgba(20,184,166,0.03) 0%, transparent 60%),
-        radial-gradient(ellipse 700px 700px at 80% 50%, rgba(20,184,166,0.02) 0%, transparent 60%),
-        radial-gradient(ellipse 500px 400px at 40% 85%, rgba(20,184,166,0.015) 0%, transparent 60%);
-    }
-    main { position: relative; z-index: 2; }
+    /* === LOADING === */
+    .loading-screen{position:fixed;inset:0;z-index:9997;background:#07070a;display:flex;align-items:center;justify-content:center;transition:opacity 0.8s,visibility 0.8s}
+    .loading-screen.hidden{opacity:0;visibility:hidden;pointer-events:none}
+    .loading-text{font-family:'Space Grotesk',sans-serif;font-size:1.2rem;color:var(--teal);letter-spacing:0.3em;text-transform:uppercase}
 
-    /* ===== NAVBAR ===== */
-    .navbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 1.25rem 0; transition: all 0.35s;
-    }
-    .navbar.scrolled {
-      background: rgba(7,7,10,0.88);
-      backdrop-filter: blur(18px);
-      padding: 0.7rem 0;
-      border-bottom: 1px solid rgba(26,26,38,0.6);
-    }
-    .navbar .container { display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo {
-      font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.15rem;
-      text-decoration: none; color: var(--text); letter-spacing: -0.02em;
-    }
-    .nav-logo span { color: var(--teal); }
-    .nav-right { display: flex; align-items: center; gap: 2.5rem; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      text-decoration: none; color: var(--text-dim); font-size: 0.85rem;
-      transition: color 0.2s; font-weight: 400;
-    }
-    .nav-links a:hover { color: var(--text); }
-    .nav-cta {
-      text-decoration: none; color: var(--teal); font-size: 0.85rem; font-weight: 500;
-      border: 1px solid rgba(20,184,166,0.25); padding: 0.5rem 1.25rem;
-      border-radius: 6px; transition: all 0.2s;
-    }
-    .nav-cta:hover { background: var(--teal-dim); border-color: var(--teal); }
-    .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-    .mobile-toggle span {
-      display: block; width: 20px; height: 1.5px; background: var(--text);
-      transition: all 0.3s; border-radius: 2px;
-    }
+    /* === NAVBAR === */
+    .navbar{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 0;transition:all 0.4s ease}
+    .navbar.scrolled{background:rgba(7,7,10,0.88);backdrop-filter:blur(18px);padding:0.7rem 0;border-bottom:1px solid rgba(26,26,38,0.6)}
+    .navbar .container{display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem;text-decoration:none;color:var(--text);letter-spacing:-0.02em}.nav-logo span{color:var(--teal)}
+    .nav-right{display:flex;align-items:center;gap:2.5rem}
+    .nav-links{display:flex;gap:2rem;list-style:none}
+    .nav-links a{text-decoration:none;color:var(--text-dim);font-size:0.85rem;transition:color 0.2s;position:relative}
+    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--teal);transition:width 0.3s}
+    .nav-links a:hover{color:var(--text)}
+    .nav-links a:hover::after{width:100%}
+    .nav-cta{text-decoration:none;color:var(--teal);font-size:0.85rem;font-weight:500;border:1px solid rgba(20,184,166,0.25);padding:0.5rem 1.25rem;border-radius:6px;transition:all 0.2s}
+    .nav-cta:hover{background:var(--teal-dim);border-color:var(--teal)}
+    .mobile-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+    .mobile-toggle span{display:block;width:20px;height:1.5px;background:var(--text);transition:all 0.3s;border-radius:2px}
 
-    /* ===== HERO ===== */
-    .hero {
-      min-height: 100vh; display: flex; align-items: flex-end;
-      padding: 10rem 0 3rem; position: relative;
-    }
-    .hero-row { display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: end; }
-    .hero h1 {
-      font-size: clamp(2.8rem, 6vw, 5rem); line-height: 1.02;
-      letter-spacing: -0.04em; max-width: 900px;
-    }
-    .hero h1 .accent { color: var(--teal); }
-    .hero-tagline {
-      font-size: 0.95rem; color: var(--text-muted); margin-top: 1.5rem;
-      max-width: 500px; line-height: 1.6;
-    }
-    .hero-badge {
-      display: flex; align-items: center; gap: 0.75rem;
-      padding: 0.5rem 0; margin-bottom: 2rem;
-    }
-    .hero-badge-dot {
-      width: 6px; height: 6px; background: var(--teal); border-radius: 50%; flex-shrink: 0;
-    }
-    .hero-badge span { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-dim); }
-    .hero-side { text-align: right; }
-    .hero-side .year { font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0.1em; }
-    .hero-side .location { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem; }
-    .hero-actions {
-      margin-top: 3rem; display: flex; gap: 1rem; align-items: center;
-    }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--teal); color: #07070a; padding: 0.8rem 1.75rem;
-      border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.85rem;
-      transition: all 0.2s;
-    }
-    .btn-primary:hover { background: #2dd4bf; }
-    .btn-outline {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: transparent; color: var(--text); padding: 0.8rem 1.75rem;
-      border-radius: 6px; text-decoration: none; font-weight: 400; font-size: 0.85rem;
-      border: 1px solid var(--border); transition: all 0.2s;
-    }
-    .btn-outline:hover { border-color: var(--text-muted); }
+    /* === HERO === */
+    .hero{min-height:100vh;display:flex;align-items:flex-end;padding:10rem 0 3rem;position:relative}
+    .hero-row{display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:end}
+    .hero h1{font-size:clamp(2.8rem,6vw,5rem);line-height:1.02;letter-spacing:-0.04em;max-width:900px}
+    .hero h1 .char{display:inline-block;opacity:0;transform:translateY(40px) rotateX(-20deg)}
+    .hero h1 .accent{color:var(--teal)}
+    .hero-tagline{font-size:0.95rem;color:var(--text-muted);margin-top:1.5rem;max-width:500px;line-height:1.6;opacity:0;transform:translateY(20px)}
+    .hero-badge{display:flex;align-items:center;gap:0.75rem;padding:0.5rem 0;margin-bottom:2rem;opacity:0}
+    .hero-badge-dot{width:6px;height:6px;background:var(--teal);border-radius:50%;flex-shrink:0;animation:pulse 2s ease-in-out infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+    .hero-badge span{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--text-dim)}
+    .hero-side{text-align:right;opacity:0}
+    .hero-side .year{font-size:0.75rem;color:var(--text-dim);letter-spacing:0.1em}
+    .hero-side .location{font-size:0.75rem;color:var(--text-muted);margin-top:0.5rem}
+    .hero-actions{margin-top:3rem;display:flex;gap:1rem;align-items:center;opacity:0;transform:translateY(20px)}
+    .btn-primary{display:inline-flex;align-items:center;gap:0.5rem;background:var(--teal);color:#07070a;padding:0.8rem 1.75rem;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85rem;transition:all 0.2s;position:relative;overflow:hidden}
+    .btn-primary:hover{background:#2dd4bf}
+    .btn-outline{display:inline-flex;align-items:center;gap:0.5rem;background:transparent;color:var(--text);padding:0.8rem 1.75rem;border-radius:6px;text-decoration:none;font-weight:400;font-size:0.85rem;border:1px solid var(--border);transition:all 0.2s}
+    .btn-outline:hover{border-color:var(--text-muted);background:rgba(255,255,255,0.02)}
 
-    /* ===== SELECTED WORK ===== */
-    .work { padding: 8rem 0; }
-    .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
-    .work-card {
-      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
-      padding: 2rem; transition: all 0.3s; text-decoration: none; display: block;
-    }
-    .work-card:hover { border-color: rgba(20,184,166,0.2); transform: translateY(-2px); }
-    .work-card-tag { font-size: 0.65rem; color: var(--teal); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.75rem; }
-    .work-card h3 { font-size: 1.15rem; color: var(--text); margin-bottom: 0.3rem; }
-    .work-card p { font-size: 0.8rem; color: var(--text-dim); }
-    .work-card-year { font-size: 0.7rem; color: var(--text-dim); margin-top: 0.75rem; }
+    /* === WORK === */
+    .work{padding:8rem 0}
+    .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem}
+    .work-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:2rem;transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);text-decoration:none;display:block;position:relative;overflow:hidden}
+    .work-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-soft),transparent 60%);opacity:0;transition:opacity 0.4s}
+    .work-card:hover{transform:translateY(-4px) scale(1.01);border-color:rgba(20,184,166,0.2);box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+    .work-card:hover::before{opacity:1}
+    .work-card-tag{font-size:0.65rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.75rem;position:relative;z-index:1}
+    .work-card h3{font-size:1.15rem;color:var(--text);margin-bottom:0.3rem;position:relative;z-index:1}
+    .work-card p{font-size:0.8rem;color:var(--text-dim);position:relative;z-index:1}
+    .work-card-year{font-size:0.7rem;color:var(--text-dim);margin-top:0.75rem;position:relative;z-index:1}
 
-    /* ===== SERVICES ===== */
-    .services { padding: 8rem 0; border-top: 1px solid var(--border); }
-    .services-list { margin-top: 3rem; display: flex; flex-direction: column; gap: 2rem; }
-    .service-item {
-      display: grid; grid-template-columns: 3rem 1fr; gap: 2rem;
-      padding-bottom: 2rem; border-bottom: 1px solid var(--border);
-    }
-    .service-item:last-child { border-bottom: none; }
-    .service-num { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 600; color: var(--text-dim); }
-    .service-item h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
-    .service-item p { font-size: 0.85rem; color: var(--text-muted); max-width: 550px; line-height: 1.6; }
-    .service-features {
-      display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;
-    }
-    .service-features span {
-      font-size: 0.7rem; padding: 0.25rem 0.75rem;
-      border: 1px solid var(--border); border-radius: 4px; color: var(--text-dim);
-    }
+    /* === SERVICES === */
+    .services{padding:8rem 0;border-top:1px solid var(--border)}
+    .services-list{margin-top:3rem;display:flex;flex-direction:column;gap:1.5rem}
+    .service-item{display:grid;grid-template-columns:3rem 1fr;gap:2rem;padding:1.5rem 0;border-bottom:1px solid var(--border);transition:all 0.3s;cursor:default}
+    .service-item:hover{border-bottom-color:rgba(20,184,166,0.15);padding-left:1rem}
+    .service-item:last-child{border-bottom:none}
+    .service-num{font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:600;color:var(--text-dim);transition:color 0.3s}
+    .service-item:hover .service-num{color:var(--teal)}
+    .service-item h3{font-size:1.1rem;margin-bottom:0.4rem}
+    .service-item p{font-size:0.85rem;color:var(--text-muted);max-width:550px;line-height:1.6}
+    .service-features{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.75rem}
+    .service-features span{font-size:0.7rem;padding:0.25rem 0.75rem;border:1px solid var(--border);border-radius:4px;color:var(--text-dim);transition:all 0.2s}
+    .service-item:hover .service-features span{border-color:rgba(20,184,166,0.2);color:var(--text-muted)}
 
-    /* ===== PROCESS ===== */
-    .process { padding: 8rem 0; background: var(--bg-card); }
-    .process-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; margin-top: 3rem; }
-    .process-step { }
-    .process-step-num {
-      font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700;
-      color: var(--text-dim); margin-bottom: 0.75rem;
-    }
-    .process-step h4 { font-size: 0.9rem; margin-bottom: 0.4rem; }
-    .process-step p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+    /* === PROCESS === */
+    .process{padding:8rem 0;background:var(--bg-card)}
+    .process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;margin-top:3rem}
+    .process-step{text-align:center;padding:2rem 1rem;border-radius:12px;transition:all 0.3s}
+    .process-step:hover{background:rgba(20,184,166,0.03)}
+    .process-step-num{font-family:'Space Grotesk',sans-serif;font-size:2.5rem;font-weight:700;color:var(--text-dim);margin-bottom:0.75rem;transition:color 0.3s}
+    .process-step:hover .process-step-num{color:var(--teal)}
+    .process-step h4{font-size:0.9rem;margin-bottom:0.4rem}
+    .process-step p{font-size:0.78rem;color:var(--text-muted);line-height:1.5}
 
-    /* ===== ABOUT / MANIFESTO ===== */
-    .about { padding: 8rem 0; }
-    .about-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 4rem; align-items: start; }
-    .about-content h2 { margin-bottom: 1.5rem; }
-    .about-content p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1rem; }
-    .about-content .highlight-text {
-      font-size: 1rem; color: var(--text); font-weight: 500; line-height: 1.6;
-      border-left: 2px solid var(--teal); padding-left: 1.25rem; margin: 1.5rem 0;
-    }
-    .about-stats { display: flex; gap: 2.5rem; margin-top: 2rem; }
-    .about-stat { }
-    .about-stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--teal); }
-    .about-stat-label { font-size: 0.75rem; color: var(--text-dim); margin-top: 0.25rem; }
+    /* === ABOUT === */
+    .about{padding:8rem 0}
+    .about-grid{display:grid;grid-template-columns:3fr 2fr;gap:4rem;align-items:start}
+    .about-content h2{margin-bottom:1.5rem}
+    .about-content p{font-size:0.9rem;color:var(--text-muted);line-height:1.7;margin-bottom:1rem}
+    .about-quote{font-size:1rem;color:var(--text);font-weight:500;line-height:1.6;border-left:2px solid var(--teal);padding-left:1.25rem;margin:1.5rem 0;transition:border-color 0.3s}
+    .about-stats{display:flex;gap:2.5rem;margin-top:2rem}
+    .about-stat-num{font-family:'Space Grotesk',sans-serif;font-size:1.75rem;font-weight:700;color:var(--teal)}
+    .about-stat-label{font-size:0.75rem;color:var(--text-dim);margin-top:0.25rem}
 
-    /* ===== TESTIMONIALS ===== */
-    .testimonials { padding: 8rem 0; border-top: 1px solid var(--border); }
-    .testimonial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
-    .testimonial-card {
-      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
-      padding: 2rem;
-    }
-    .testimonial-card blockquote {
-      font-size: 0.9rem; color: var(--text-muted); line-height: 1.7;
-      margin-bottom: 1.5rem; font-style: italic;
-    }
-    .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
-    .testimonial-avatar {
-      width: 36px; height: 36px; border-radius: 50%; background: var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.8rem; color: var(--text-dim);
-    }
-    .testimonial-name { font-size: 0.85rem; font-weight: 500; color: var(--text); }
-    .testimonial-role { font-size: 0.7rem; color: var(--text-dim); }
+    /* === TESTIMONIALS === */
+    .testimonials{padding:8rem 0;border-top:1px solid var(--border)}
+    .testimonial-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem}
+    .testimonial-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:2rem;transition:all 0.3s}
+    .testimonial-card:hover{border-color:rgba(20,184,166,0.15);transform:translateY(-2px)}
+    .testimonial-card blockquote{font-size:0.9rem;color:var(--text-muted);line-height:1.7;margin-bottom:1.5rem;font-style:italic}
+    .testimonial-author{display:flex;align-items:center;gap:0.75rem}
+    .testimonial-avatar{width:36px;height:36px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:0.8rem;color:var(--text-dim)}
+    .testimonial-name{font-size:0.85rem;font-weight:500;color:var(--text)}
+    .testimonial-role{font-size:0.7rem;color:var(--text-dim)}
 
-    /* ===== FAQ ===== */
-    .faq { padding: 8rem 0; border-top: 1px solid var(--border); }
-    .faq-list { margin-top: 3rem; max-width: 720px; }
-    .faq-item {
-      border-bottom: 1px solid var(--border); padding: 1.25rem 0;
-    }
-    .faq-question {
-      display: flex; justify-content: space-between; align-items: center;
-      cursor: pointer; width: 100%; background: none; border: none;
-      font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 500;
-      color: var(--text); padding: 0; text-align: left;
-    }
-    .faq-question::after {
-      content: '+'; font-size: 1.1rem; color: var(--text-dim);
-      transition: transform 0.2s;
-    }
-    .faq-item.open .faq-question::after { content: '−'; }
-    .faq-answer {
-      max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s;
-    }
-    .faq-item.open .faq-answer {
-      max-height: 200px; padding-top: 0.75rem;
-    }
-    .faq-answer p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+    /* === FAQ === */
+    .faq{padding:8rem 0;border-top:1px solid var(--border)}
+    .faq-list{margin-top:3rem;max-width:720px}
+    .faq-item{border-bottom:1px solid var(--border);padding:1rem 0;transition:all 0.3s}
+    .faq-question{display:flex;justify-content:space-between;align-items:center;cursor:pointer;width:100%;background:none;border:none;font-family:'Inter',sans-serif;font-size:0.9rem;font-weight:500;color:var(--text);padding:0;text-align:left;transition:color 0.2s}
+    .faq-question:hover{color:var(--teal)}
+    .faq-question .icon{color:var(--text-dim);font-size:1.1rem;transition:transform 0.3s;flex-shrink:0}
+    .faq-item.open .faq-question .icon{transform:rotate(45deg)}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s}
+    .faq-item.open .faq-answer{max-height:200px;padding-top:0.75rem}
+    .faq-answer p{font-size:0.85rem;color:var(--text-muted);line-height:1.6}
 
-    /* ===== CTA ===== */
-    .cta-section {
-      padding: 8rem 0; text-align: center; position: relative;
-    }
-    .cta-section::before {
-      content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-      width: 700px; height: 700px; background: radial-gradient(circle, var(--teal-glow) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .cta-section h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
-    .cta-section p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
-    .cta-buttons { display: flex; gap: 1rem; justify-content: center; }
+    /* === CTA === */
+    .cta-section{padding:8rem 0;text-align:center;position:relative}
+    .cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,var(--teal-glow) 0%,transparent 70%);pointer-events:none}
+    .cta-section h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem}
+    .cta-section p{color:var(--text-muted);font-size:0.9rem;margin-bottom:2rem}
 
-    /* ===== FOOTER ===== */
-    .footer {
-      padding: 3rem 0; border-top: 1px solid var(--border);
-    }
-    .footer-row {
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: 0.78rem; color: var(--text-dim);
-    }
-    .footer-links { display: flex; gap: 1.5rem; }
-    .footer-links a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--text-muted); }
+    /* === FOOTER === */
+    .footer{padding:3rem 0;border-top:1px solid var(--border)}
+    .footer-row{display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:var(--text-dim)}
+    .footer-links{display:flex;gap:1.5rem}
+    .footer-links a{color:var(--text-dim);text-decoration:none;transition:color 0.2s;position:relative}
+    .footer-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--text-dim);transition:width 0.2s}
+    .footer-links a:hover{color:var(--text-muted)}
+    .footer-links a:hover::after{width:100%}
 
-    /* ===== ANIMATIONS ===== */
-    .reveal { opacity: 0; transform: translateY(24px); transition: all 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-d1 { transition-delay: 0.08s; }
-    .reveal-d2 { transition-delay: 0.16s; }
-    .reveal-d3 { transition-delay: 0.24s; }
-    .reveal-d4 { transition-delay: 0.32s; }
-    .reveal-d5 { transition-delay: 0.40s; }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 968px) {
-      .hero-row { grid-template-columns: 1fr; }
-      .hero-side { text-align: left; }
-      .work-grid { grid-template-columns: 1fr; }
-      .process-grid { grid-template-columns: repeat(3, 1fr); }
-      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .testimonial-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-      .nav-links.open {
-        display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0;
-        background: rgba(7,7,10,0.98); backdrop-filter: blur(20px); padding: 2rem;
-        border-bottom: 1px solid var(--border); gap: 1rem; align-items: stretch;
-      }
-      .mobile-toggle { display: flex; }
-      .about-stats { gap: 1.5rem; }
+    /* === RESPONSIVE === */
+    @media(max-width:968px){
+      .hero-row{grid-template-columns:1fr}
+      .hero-side{text-align:left}
+      .work-grid{grid-template-columns:1fr}
+      .process-grid{grid-template-columns:repeat(3,1fr)}
+      .about-grid{grid-template-columns:1fr;gap:2rem}
+      .testimonial-grid{grid-template-columns:1fr}
+      .nav-links{display:none}
+      .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(7,7,10,0.98);backdrop-filter:blur(20px);padding:2rem;border-bottom:1px solid var(--border);gap:1rem;align-items:stretch}
+      .mobile-toggle{display:flex}
+      .about-stats{gap:1.5rem}
     }
-    @media (max-width: 640px) {
-      .container { padding: 0 1.25rem; }
-      .process-grid { grid-template-columns: 1fr; }
-      .about-stats { flex-direction: column; gap: 1rem; }
-      .footer-row { flex-direction: column; gap: 1rem; text-align: center; }
+    @media(max-width:640px){
+      .container{padding:0 1.25rem}
+      .process-grid{grid-template-columns:1fr}
+      .about-stats{flex-direction:column;gap:1rem}
+      .footer-row{flex-direction:column;gap:1rem;text-align:center}
     }
-
-    /* ===== LOADING ===== */
-    .loading-bar {
-      position: fixed; top: 0; left: 0; height: 2px; z-index: 999;
-      background: linear-gradient(90deg, var(--teal), #2dd4bf, var(--teal));
-      animation: load 0.6s ease forwards; pointer-events: none;
+    @media(max-width:1024px){
+      body{cursor:auto}
+      .cursor-dot,.cursor-ring{display:none !important}
     }
-    @keyframes load { 0% { width: 0; } 100% { width: 100%; } }
   </style>
 </head>
 <body>
 
-<div class="loading-bar"></div>
+<div class="loading-screen" id="loading">
+  <div class="loading-text" id="loadingText">Rangel<span>.</span></div>
+</div>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 <div class="bg-glow"></div>
+<div class="floating-shapes" id="floatingShapes"></div>
 
-<!-- ===== NAVBAR ===== -->
+<!-- === NAVBAR === -->
 <nav class="navbar" id="navbar">
   <div class="container">
-    <a href="#" class="nav-logo">Rangel<span>.</span></a>
+    <a href="#" class="nav-logo" data-cursor-magnetic>Rangel<span>.</span></a>
     <div class="nav-right">
       <ul class="nav-links" id="navLinks">
-        <li><a href="#work">Work</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#process">Proceso</a></li>
-        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#work" data-cursor-hover>Work</a></li>
+        <li><a href="#servicios" data-cursor-hover>Servicios</a></li>
+        <li><a href="#process" data-cursor-hover>Proceso</a></li>
+        <li><a href="#faq" data-cursor-hover>FAQ</a></li>
       </ul>
-      <a href="#contacto" class="nav-cta">Proyecto →</a>
+      <a href="#contacto" class="nav-cta" data-cursor-hover>Proyecto →</a>
       <div class="mobile-toggle" id="mobileToggle" aria-label="Menú">
         <span></span><span></span><span></span>
       </div>
@@ -338,61 +211,62 @@
 </nav>
 
 <main>
-  <!-- ===== HERO ===== -->
+  <!-- === HERO === -->
   <section class="hero" id="inicio">
     <div class="container">
       <div class="hero-row">
         <div>
-          <div class="hero-badge">
+          <div class="hero-badge" id="heroBadge">
             <span class="hero-badge-dot"></span>
             <span>Independent Digital Design Studio</span>
           </div>
-          <h1>
-            Sitios web modernos<br />
+          <h1 id="heroTitle">
+            Sitios web modernos<br/>
             para marcas <span class="accent">ambiciosas</span>
           </h1>
-          <p class="hero-tagline">
+          <p class="hero-tagline" id="heroTagline">
             Diseño páginas web de alto rendimiento que combinan
             estrategia, estética y tecnología para ayudar a tu negocio
             a crecer y vender más.
           </p>
-          <div class="hero-actions">
-            <a href="#contacto" class="btn-primary">Iniciar proyecto →</a>
-            <a href="#work" class="btn-outline">Ver trabajos</a>
+          <div class="hero-actions" id="heroActions">
+            <a href="#contacto" class="btn-primary" data-cursor-hover>Iniciar proyecto →</a>
+            <a href="#work" class="btn-outline" data-cursor-hover>Ver trabajos</a>
           </div>
         </div>
-        <div class="hero-side">
+        <div class="hero-side" id="heroSide">
           <div class="year">RDS © 2026</div>
-          <div class="location">DISPONIBLE GLOBAL<br />SANTIAGO, CHILE</div>
+          <div class="location">DISPONIBLE GLOBAL<br/>SANTIAGO, CHILE</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== SELECTED WORK ===== -->
+  <!-- === WORK === -->
   <section class="work" id="work">
     <div class="container">
-      <div class="label-teal">Selected Work (04)</div>
+      <div class="label-teal" data-animate>Selected Work (04)</div>
+      <h2 class="section-title" data-animate>Proyectos recientes</h2>
       <div class="work-grid">
-        <a class="work-card reveal" href="#contacto">
+        <a class="work-card" href="#contacto" data-animate data-cursor-hover>
           <div class="work-card-tag">Branding & Web</div>
           <h3>Neolith Systems</h3>
           <p>Identidad digital y sitio web corporativo</p>
           <div class="work-card-year">2026</div>
         </a>
-        <a class="work-card reveal reveal-d1" href="#contacto">
+        <a class="work-card" href="#contacto" data-animate data-cursor-hover>
           <div class="work-card-tag">E-commerce</div>
           <h3>Aura Labs</h3>
           <p>Plataforma de ventas con IA integrada</p>
           <div class="work-card-year">2026</div>
         </a>
-        <a class="work-card reveal reveal-d2" href="#contacto">
+        <a class="work-card" href="#contacto" data-animate data-cursor-hover>
           <div class="work-card-tag">Web App</div>
           <h3>Velocity VC</h3>
           <p>Dashboard interactivo para portafolio</p>
           <div class="work-card-year">2025</div>
         </a>
-        <a class="work-card reveal reveal-d3" href="#contacto">
+        <a class="work-card" href="#contacto" data-animate data-cursor-hover>
           <div class="work-card-tag">Experience</div>
           <h3>Kinetic Studio</h3>
           <p>Experiencia web inmersiva con animaciones</p>
@@ -402,103 +276,78 @@
     </div>
   </section>
 
-  <!-- ===== SERVICES ===== -->
+  <!-- === SERVICES === -->
   <section class="services" id="servicios">
     <div class="container">
-      <div class="label-teal">Servicios</div>
-      <h2 class="section-title">
-        Soluciones digitales a medida<br />
+      <div class="label-teal" data-animate>Servicios</div>
+      <h2 class="section-title" data-animate>
+        Soluciones digitales a medida<br/>
         que conectan diseño y resultados.
       </h2>
-
       <div class="services-list">
-        <div class="service-item reveal">
-          <div class="service-num">01</div>
+        <div class="service-item" data-animate>
+          <div class="service-num count-num" data-count="4">01</div>
           <div>
             <h3>Diseño Web</h3>
             <p>UI/UX de calidad editorial que capta la atención y convierte visitantes en clientes leales. Sitios rápidos, responsivos y optimizados para SEO.</p>
-            <div class="service-features">
-              <span>Landing page</span>
-              <span>Corporativo</span>
-              <span>E-commerce</span>
-              <span>SEO incluido</span>
-            </div>
+            <div class="service-features"><span>Landing page</span><span>Corporativo</span><span>E-commerce</span><span>SEO incluido</span></div>
           </div>
         </div>
-
-        <div class="service-item reveal reveal-d1">
+        <div class="service-item" data-animate>
           <div class="service-num">02</div>
           <div>
             <h3>Adquisición de Clientes</h3>
             <p>Campañas en Google Ads y Meta Ads diseñadas para atraer clientes potenciales que buscan exactamente lo que ofreces. Segmentación precisa y optimización constante.</p>
-            <div class="service-features">
-              <span>Google Ads</span>
-              <span>Meta Ads</span>
-              <span>Segmentación</span>
-              <span>Optimización</span>
-            </div>
+            <div class="service-features"><span>Google Ads</span><span>Meta Ads</span><span>Segmentación</span><span>Optimización</span></div>
           </div>
         </div>
-
-        <div class="service-item reveal reveal-d2">
+        <div class="service-item" data-animate>
           <div class="service-num">03</div>
           <div>
             <h3>Sistema Completo</h3>
             <p>El paquete integral: página web profesional más campañas de publicidad. De principio a fin, nos encargamos de todo para que tu negocio venda 24/7.</p>
-            <div class="service-features">
-              <span>Web + Ads</span>
-              <span>Dashboard</span>
-              <span>Soporte 7 días</span>
-              <span>Resultados</span>
-            </div>
+            <div class="service-features"><span>Web + Ads</span><span>Dashboard</span><span>Soporte 7 días</span><span>Resultados</span></div>
           </div>
         </div>
-
-        <div class="service-item reveal reveal-d3">
+        <div class="service-item" data-animate>
           <div class="service-num">04</div>
           <div>
             <h3>Automatizaciones con IA</h3>
             <p>Conecta tus activos digitales con flujos inteligentes que ahorran horas de trabajo. Chatbot 24/7, agendamiento automático y CRM para no perder ninguna venta.</p>
-            <div class="service-features">
-              <span>Chatbot IA</span>
-              <span>Agendamiento</span>
-              <span>CRM</span>
-              <span>Lead scoring</span>
-            </div>
+            <div class="service-features"><span>Chatbot IA</span><span>Agendamiento</span><span>CRM</span><span>Lead scoring</span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== PROCESS ===== -->
+  <!-- === PROCESS === -->
   <section class="process" id="process">
     <div class="container">
-      <div class="label-teal">Proceso simple</div>
-      <h2 class="section-title">Cómo trabajamos</h2>
-
+      <div class="label-teal" data-animate>Proceso simple</div>
+      <h2 class="section-title" data-animate>Cómo trabajamos</h2>
       <div class="process-grid">
-        <div class="process-step reveal">
+        <div class="process-step" data-animate>
           <div class="process-step-num">01</div>
           <h4>Descubrimiento</h4>
           <p>Investigación profunda de tu marca, audiencia y objetivos para construir una base sólida.</p>
         </div>
-        <div class="process-step reveal reveal-d1">
+        <div class="process-step" data-animate>
           <div class="process-step-num">02</div>
           <h4>Estrategia</h4>
           <p>Mapeo del viaje del usuario y arquitectura del sitio para que cada clic tenga un propósito.</p>
         </div>
-        <div class="process-step reveal reveal-d2">
+        <div class="process-step" data-animate>
           <div class="process-step-num">03</div>
           <h4>Diseño</h4>
           <p>Creación de conceptos visuales de alta fidelidad que reflejan la personalidad única de tu marca.</p>
         </div>
-        <div class="process-step reveal reveal-d3">
+        <div class="process-step" data-animate>
           <div class="process-step-num">04</div>
           <h4>Desarrollo</h4>
           <p>Código limpio, animaciones fluidas y responsive perfecto en todos los dispositivos.</p>
         </div>
-        <div class="process-step reveal reveal-d4">
+        <div class="process-step" data-animate>
           <div class="process-step-num">05</div>
           <h4>Lanzamiento</h4>
           <p>Testing final, optimización SEO y deploy. Celebramos juntos tu nueva casa digital.</p>
@@ -507,23 +356,22 @@
     </div>
   </section>
 
-  <!-- ===== ABOUT ===== -->
+  <!-- === ABOUT === -->
   <section class="about" id="about">
     <div class="container">
       <div class="about-grid">
-        <div class="about-content reveal">
+        <div class="about-content" data-animate>
           <div class="label-teal">Sobre RDS</div>
           <h2 class="section-title">
-            El diseño es solo<br />
+            El diseño es solo<br/>
             el comienzo
           </h2>
           <p>
             Creo que un sitio web no solo debe verse bien — debe ser un
             activo estratégico que impulse el crecimiento de tu negocio.
-            Mi enfoque combina precisión estética con rendimiento técnico
-            para crear experiencias digitales que realmente conectan.
+            Mi enfoque combina precisión estética con rendimiento técnico.
           </p>
-          <div class="highlight-text">
+          <div class="about-quote">
             "Cada decisión de diseño está alineada con lo que realmente
             importa: que tu negocio venda más."
           </div>
@@ -533,19 +381,21 @@
             con el director creativo en cada fase del proyecto.
           </p>
         </div>
-        <div class="about-stats-row reveal reveal-d1">
-          <div class="about-stats">
-            <div class="about-stat">
-              <div class="about-stat-num">40+</div>
-              <div class="about-stat-label">Proyectos entregados</div>
-            </div>
-            <div class="about-stat">
-              <div class="about-stat-num">4.9★</div>
-              <div class="about-stat-label">Calificación promedio</div>
-            </div>
-            <div class="about-stat">
-              <div class="about-stat-num">10</div>
-              <div class="about-stat-label">Días promedio entrega</div>
+        <div data-animate>
+          <div class="about-stats-row">
+            <div class="about-stats">
+              <div class="about-stat">
+                <div class="about-stat-num"><span class="stat-counter" data-target="40">0</span>+</div>
+                <div class="about-stat-label">Proyectos entregados</div>
+              </div>
+              <div class="about-stat">
+                <div class="about-stat-num">4.9★</div>
+                <div class="about-stat-label">Calificación promedio</div>
+              </div>
+              <div class="about-stat">
+                <div class="about-stat-num"><span class="stat-counter" data-target="7">0</span> días</div>
+                <div class="about-stat-label">Entrega promedio</div>
+              </div>
             </div>
           </div>
         </div>
@@ -553,146 +403,342 @@
     </div>
   </section>
 
-  <!-- ===== TESTIMONIALS ===== -->
+  <!-- === TESTIMONIALS === -->
   <section class="testimonials" id="testimonios">
     <div class="container">
-      <div class="label-teal">Testimonios</div>
-      <h2 class="section-title">Lo que dicen nuestros clientes</h2>
-
+      <div class="label-teal" data-animate>Testimonios</div>
+      <h2 class="section-title" data-animate>Lo que dicen nuestros clientes</h2>
       <div class="testimonial-grid">
-        <div class="testimonial-card reveal">
-          <blockquote>
-            "Rangel entregó un sitio que superó nuestras expectativas.
-            La atención al detalle es simplemente inigualable en la industria."
-          </blockquote>
+        <div class="testimonial-card" data-animate>
+          <blockquote>"Rangel entregó un sitio que superó nuestras expectativas. La atención al detalle es simplemente inigualable en la industria."</blockquote>
           <div class="testimonial-author">
             <div class="testimonial-avatar">MR</div>
-            <div>
-              <div class="testimonial-name">Marcus Reed</div>
-              <div class="testimonial-role">Founder, Neolith</div>
-            </div>
+            <div><div class="testimonial-name">Marcus Reed</div><div class="testimonial-role">Founder, Neolith</div></div>
           </div>
         </div>
-        <div class="testimonial-card reveal reveal-d1">
-          <blockquote>
-            "Trabajar con un especialista marca toda la diferencia.
-            Nuestra tasa de conversión aumentó un 40% el primer mes."
-          </blockquote>
+        <div class="testimonial-card" data-animate>
+          <blockquote>"Trabajar con un especialista marca toda la diferencia. Nuestra tasa de conversión aumentó un 40% el primer mes."</blockquote>
           <div class="testimonial-author">
             <div class="testimonial-avatar">SC</div>
-            <div>
-              <div class="testimonial-name">Sarah Chen</div>
-              <div class="testimonial-role">CEO, Aura Labs</div>
-            </div>
+            <div><div class="testimonial-name">Sarah Chen</div><div class="testimonial-role">CEO, Aura Labs</div></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== FAQ ===== -->
+  <!-- === FAQ === -->
   <section class="faq" id="faq">
     <div class="container">
-      <div class="label-teal">FAQ</div>
-      <h2 class="section-title">Preguntas frecuentes</h2>
-
+      <div class="label-teal" data-animate>FAQ</div>
+      <h2 class="section-title" data-animate>Preguntas frecuentes</h2>
       <div class="faq-list">
-        <div class="faq-item reveal">
-          <button class="faq-question">¿Cuál es la duración típica de un proyecto?</button>
+        <div class="faq-item" data-animate>
+          <button class="faq-question">¿Cuál es la duración típica de un proyecto?<span class="icon">+</span></button>
           <div class="faq-answer"><p>La mayoría de los proyectos toman entre 1 a 3 semanas desde el inicio hasta el lanzamiento. Depende del alcance y la complejidad de los requisitos.</p></div>
         </div>
-        <div class="faq-item reveal reveal-d1">
-          <button class="faq-question">¿Cuánto cobras por una página web?</button>
-          <div class="faq-answer"><p>Trabajo con presupuesto fijo por proyecto. Desde $499 USD para sitios básicos hasta $1,499 USD para sistemas completos con IA y automatizaciones.</p></div>
+        <div class="faq-item" data-animate>
+          <button class="faq-question">¿Cuánto cobras por una página web?<span class="icon">+</span></button>
+          <div class="faq-answer"><p>Trabajo con presupuesto fijo por proyecto. Desde $499 USD para sitios básicos hasta $1,499 USD para sistemas completos con IA.</p></div>
         </div>
-        <div class="faq-item reveal reveal-d2">
-          <button class="faq-question">¿Ofrecen soporte después del lanzamiento?</button>
-          <div class="faq-answer"><p>Sí. Todos los planes incluyen soporte post-lanzamiento. Ofrezco retainers mensuales para mantenimiento, optimización y soporte continuo.</p></div>
+        <div class="faq-item" data-animate>
+          <button class="faq-question">¿Ofrecen soporte después del lanzamiento?<span class="icon">+</span></button>
+          <div class="faq-answer"><p>Sí. Todos los planes incluyen soporte post-lanzamiento. Ofrezco retainers mensuales para mantenimiento y soporte continuo.</p></div>
         </div>
-        <div class="faq-item reveal reveal-d3">
-          <button class="faq-question">¿Trabajan con clientes fuera de Chile?</button>
+        <div class="faq-item" data-animate>
+          <button class="faq-question">¿Trabajan con clientes fuera de Chile?<span class="icon">+</span></button>
           <div class="faq-answer"><p>Sí. Trabajo con clientes de toda Latinoamérica y Estados Unidos. Gestiono las diferencias horarias a través de comunicación asíncrona eficiente.</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== CTA ===== -->
+  <!-- === CTA === -->
   <section class="cta-section" id="contacto">
     <div class="container">
       <div class="label-teal" style="margin-bottom:1rem;">Contacto</div>
-      <h2>¿Listo para construir<br />algo extraordinario?</h2>
-      <p>Una llamada de 15 minutos basta para entender tu negocio<br />y proponerte el plan ideal. Sin compromiso.</p>
-      <div class="cta-buttons">
-        <a href="https://wa.me/56912345678?text=Hola%20RDS,%20quiero%20una%20consulta" target="_blank" rel="noopener" class="btn-primary">Iniciar proyecto →</a>
+      <h2 data-animate>¿Listo para construir<br/>algo extraordinario?</h2>
+      <p data-animate>Una llamada de 15 minutos basta para entender tu negocio<br/>y proponerte el plan ideal. Sin compromiso.</p>
+      <div data-animate>
+        <a href="https://wa.me/56912345678?text=Hola%20RDS,%20quiero%20una%20consulta" target="_blank" rel="noopener" class="btn-primary" data-cursor-hover>Iniciar proyecto →</a>
       </div>
     </div>
   </section>
 </main>
 
-<!-- ===== FOOTER ===== -->
+<!-- === FOOTER === -->
 <footer class="footer">
   <div class="container">
     <div class="footer-row">
       <span>RANGEL DESIGN SYSTEM © 2026 — Santiago, Chile</span>
       <div class="footer-links">
-        <a href="#">Inicio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#faq">FAQ</a>
+        <a href="#" data-cursor-hover>Inicio</a>
+        <a href="#servicios" data-cursor-hover>Servicios</a>
+        <a href="#faq" data-cursor-hover>FAQ</a>
       </div>
     </div>
   </div>
 </footer>
 
 <script>
-  // === Navbar scroll ===
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
+// ===== LOADING SCREEN =====
+window.addEventListener('load', () => {
+  anime({
+    targets: '#loadingText',
+    opacity: [0, 1],
+    translateY: [20, 0],
+    duration: 600,
+    easing: 'easeOutExpo'
+  });
+  setTimeout(() => {
+    anime({
+      targets: '#loading',
+      opacity: 0,
+      duration: 800,
+      easing: 'easeOutExpo',
+      complete: () => document.getElementById('loading').classList.add('hidden')
+    });
+    startHeroAnimation();
+    generateShapes();
+  }, 900);
+});
+
+// ===== HERO ANIMATION =====
+function startHeroAnimation() {
+  const title = document.getElementById('heroTitle');
+  const text = title.textContent;
+  title.innerHTML = '';
+  const chars = text.split('');
+  chars.forEach((c, i) => {
+    const span = document.createElement('span');
+    span.className = 'char';
+    span.textContent = c === ' ' ? '\u00A0' : c;
+    span.style.setProperty('--i', i);
+    title.appendChild(span);
   });
 
-  // === Mobile toggle ===
-  const toggle = document.getElementById('mobileToggle');
-  const links = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => {
-    toggle.classList.toggle('active');
-    links.classList.toggle('open');
-  });
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    a.addEventListener('click', () => {
-      toggle.classList.remove('active');
-      links.classList.remove('open');
-    });
+  anime({
+    targets: '.hero-badge',
+    opacity: [0, 1],
+    translateY: [20, 0],
+    duration: 600,
+    delay: 200,
+    easing: 'easeOutExpo'
   });
 
-  // === Scroll reveals ===
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // === FAQ accordion ===
-  document.querySelectorAll('.faq-question').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.parentElement;
-      const wasOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-      if (!wasOpen) item.classList.add('open');
-    });
+  anime({
+    targets: '.hero h1 .char',
+    opacity: [0, 1],
+    translateY: [40, 0],
+    rotateX: [-20, 0],
+    duration: 700,
+    delay: anime.stagger(40, {start: 500}),
+    easing: 'easeOutExpo'
   });
 
-  // === Smooth scroll ===
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if (href === '#') return;
-      e.preventDefault();
-      const target = document.querySelector(href);
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  anime({
+    targets: '#heroTagline',
+    opacity: [0, 1],
+    translateY: [20, 0],
+    duration: 600,
+    delay: 1200,
+    easing: 'easeOutExpo'
+  });
+
+  anime({
+    targets: '#heroActions',
+    opacity: [0, 1],
+    translateY: [20, 0],
+    duration: 600,
+    delay: 1500,
+    easing: 'easeOutExpo'
+  });
+
+  anime({
+    targets: '#heroSide',
+    opacity: [0, 1],
+    duration: 600,
+    delay: 1700,
+    easing: 'easeOutExpo'
+  });
+}
+
+// ===== FLOATING SHAPES =====
+function generateShapes() {
+  const container = document.getElementById('floatingShapes');
+  const colors = ['rgba(20,184,166,0.04)', 'rgba(20,184,166,0.02)', 'rgba(20,184,166,0.03)'];
+  for (let i = 0; i < 8; i++) {
+    const shape = document.createElement('div');
+    shape.className = 'shape';
+    const size = 20 + Math.random() * 80;
+    shape.style.width = size + 'px';
+    shape.style.height = size + 'px';
+    shape.style.left = Math.random() * 100 + '%';
+    shape.style.top = Math.random() * 100 + '%';
+    shape.style.background = colors[i % colors.length];
+    shape.style.animation = `float${i} ${8 + Math.random() * 12}s ease-in-out infinite`;
+    shape.style.animationDelay = Math.random() * 5 + 's';
+    container.appendChild(shape);
+    
+    const keyframes = `
+      @keyframes float${i} {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        25% { transform: translate(${10 + Math.random() * 20}px, ${-15 + Math.random() * -10}px) rotate(${Math.random() * 20}deg); }
+        50% { transform: translate(${5 + Math.random() * 15}px, ${5 + Math.random() * 15}px) rotate(${Math.random() * 30}deg); }
+        75% { transform: translate(${-10 + Math.random() * -20}px, ${-5 + Math.random() * -10}px) rotate(${Math.random() * 15}deg); }
+      }
+    `;
+    const style = document.createElement('style');
+    style.textContent = keyframes;
+    document.head.appendChild(style);
+  }
+}
+
+// ===== SCROLL REVEALS (anime.js) =====
+const animateObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      anime({
+        targets: el,
+        opacity: [0, 1],
+        translateY: [30, 0],
+        duration: 700,
+        delay: 100,
+        easing: 'easeOutExpo'
+      });
+      animateObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('[data-animate]').forEach(el => {
+  el.style.opacity = 0;
+  animateObserver.observe(el);
+});
+
+// ===== STAGGERED CARDS =====
+const cardObserver = new IntersectionObserver((entries) => {
+  const visible = entries.filter(e => e.isIntersecting);
+  if (visible.length > 0) {
+    const parent = visible[0].target.closest('.work-grid, .services-list, .process-grid, .testimonial-grid, .faq-list');
+    if (parent) {
+      const children = parent.querySelectorAll('[data-animate]');
+      anime({
+        targets: children,
+        opacity: [0, 1],
+        translateY: [30, 0],
+        duration: 600,
+        delay: anime.stagger(120),
+        easing: 'easeOutExpo'
+      });
+      children.forEach(c => cardObserver.unobserve(c));
+    }
+  }
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.work-grid, .services-list, .process-grid, .testimonial-grid, .faq-list').forEach(grid => {
+  grid.querySelectorAll('[data-animate]').forEach(el => {
+    el.style.opacity = 0;
+    cardObserver.observe(el);
+  });
+});
+
+// ===== STAT COUNTER =====
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const counter = entry.target;
+      const target = parseInt(counter.dataset.target);
+      anime({
+        targets: counter,
+        innerHTML: [0, target],
+        duration: 1500,
+        delay: 300,
+        easing: 'easeOutCubic',
+        round: 1,
+        update: () => {
+          counter.innerHTML = Math.round(counter.innerHTML);
+        }
+      });
+      counterObserver.unobserve(counter);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-counter').forEach(el => counterObserver.observe(el));
+
+// ===== CUSTOM CURSOR =====
+const dot = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+
+document.addEventListener('mousemove', (e) => {
+  const x = e.clientX, y = e.clientY;
+  anime({
+    targets: dot,
+    translateX: x - 4,
+    translateY: y - 4,
+    duration: 0
+  });
+  anime({
+    targets: ring,
+    translateX: x - 18,
+    translateY: y - 18,
+    duration: 200,
+    easing: 'easeOutCirc'
+  });
+});
+
+document.querySelectorAll('[data-cursor-hover]').forEach(el => {
+  el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+  el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+});
+
+// ===== NAVBAR =====
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ===== MOBILE TOGGLE =====
+const toggle = document.getElementById('mobileToggle');
+const links = document.getElementById('navLinks');
+toggle.addEventListener('click', () => {
+  toggle.classList.toggle('active');
+  links.classList.toggle('open');
+});
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    toggle.classList.remove('active');
+    links.classList.remove('open');
+  });
+});
+
+// ===== FAQ ACCORDION =====
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+    anime({
+      targets: item.querySelector('.icon'),
+      rotate: wasOpen ? [0, 0] : [0, 0],
+      duration: 0
     });
   });
+});
+
+// ===== SMOOTH SCROLL =====
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href === '#') return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
 </script>
 </body>
 </html>
