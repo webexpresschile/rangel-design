@@ -61,3 +61,37 @@
 3. **Precio al final** — solo después de mostrar valor. Si preguntan antes, deriva
 4. **Siempre opción binaria** — "¿Martes o jueves?" no "¿te interesaría?"
 5. **Anota todo** — después de cada llamada registra resultado
+
+---
+
+## 10 Objeciones Comunes + Respuestas Cortas
+
+### 1. "No me interesa"
+→ "Te entiendo. Precisamente por eso no te voy a vender nada por teléfono — solo quiero mostrarte 2 casos de negocios como el tuyo que sí les funcionó. ¿Martes o jueves?"
+
+### 2. "Estoy muy ocupado"
+→ "Te creo. Justo por eso te ofrezco solo 15 minutos, cuando tú puedas. ¿Prefieres que te llame el martes a las 11 o el jueves a las 4?"
+
+### 3. "Mándame info por WhatsApp/correo"
+→ "Con gusto. Para enviarte algo preciso, ¿qué te interesa más — generar leads por Google o por redes sociales?"
+
+### 4. "Ya trabajo con alguien"
+→ "Qué bueno. Si estás conforme, perfecto. Solo una pregunta: ¿estás viendo los resultados que esperabas? A veces un segundo par de ojos duplica el rendimiento."
+
+### 5. "¿Cuánto cuesta?"
+→ "Justo por eso no te quiero dar un número al aire. Déjame mostrarte primero los resultados que hemos logrado con negocios similares y ahí ves si tiene sentido. ¿Martes?"
+
+### 6. "No tengo presupuesto"
+→ "Lo entiendo. Precisamente por eso partimos con ejemplos reales de retorno. Si la inversión se paga sola con los resultados, el presupuesto aparece. ¿Te parece si te muestro?"
+
+### 7. "Llámame en un mes"
+→ "¿Sabes qué? Prefiero no molestarte después sin contexto. ¿Qué tal si agendamos los 15 minutos ahora para mostrarte los casos, y si te gusta, partimos cuando tú digas?"
+
+### 8. "Tengo que consultarlo con mi socio/jefe"
+→ "Claro. ¿Qué crees que le importaría más saber? Para que yo te pueda dar los datos exactos que necesita para decidir."
+
+### 9. "No soy la persona indicada"
+→ "¿Quién crees que debería ver esto? Porque lo que hacemos aplica directo a conseguir más clientes para el negocio."
+
+### 10. "¿Cómo conseguiste mi número?"
+→ "Estamos haciendo una ronda de prospección en [ciudad] para negocios de [rubro], porque justamente están funcionando muy bien los resultados con publicidad digital. Tu negocio calza perfecto."
