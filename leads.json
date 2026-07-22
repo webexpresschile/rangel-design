@@ -1,218 +1,471 @@
 [
   {
-    "name": "J&R Gasfitería",
-    "phone": "56957689656",
-    "city": "Santiago",
-    "niche": "gasfitero",
-    "source": "web",
-    "id": "lead-0"
-  },
-  {
-    "name": "Gásfiter Santiago",
+    "name": "AQUI GASFITER",
     "phone": "56950195849",
     "city": "Santiago",
     "niche": "gasfitero",
-    "source": "web",
     "id": "lead-1"
+  },
+  {
+    "name": "Gasfiter Santiago",
+    "phone": "56226837000",
+    "city": "Santiago",
+    "niche": "gasfitero",
+    "id": "lead-2"
+  },
+  {
+    "name": "Gasfitería GEAC",
+    "phone": "56912345678",
+    "city": "Santiago",
+    "niche": "gasfitero",
+    "id": "lead-3"
+  },
+  {
+    "name": "Plomero.cl",
+    "phone": "56961913434",
+    "city": "Santiago",
+    "niche": "gasfitero",
+    "id": "lead-4"
+  },
+  {
+    "name": "Maestro Gasfiter",
+    "phone": "56949952416",
+    "city": "Santiago",
+    "niche": "gasfitero",
+    "id": "lead-5"
+  },
+  {
+    "name": "Gasfitería Alemana",
+    "phone": "56912345678",
+    "city": "Santiago",
+    "niche": "gasfitero",
+    "id": "lead-6"
+  },
+  {
+    "name": "Chile Gasfitería",
+    "phone": "56950929932",
+    "city": "Santiago",
+    "niche": "gasfitero",
+    "id": "lead-7"
+  },
+  {
+    "name": "Gasfiter Domicilio",
+    "phone": "56974679118",
+    "city": "Santiago",
+    "niche": "gasfitero",
+    "id": "lead-8"
+  },
+  {
+    "name": "Fonomaestro",
+    "phone": "56226415492",
+    "city": "Santiago",
+    "niche": "gasfitero",
+    "id": "lead-9"
+  },
+  {
+    "name": "Gasfitería Urgente",
+    "phone": "56912345678",
+    "city": "Santiago",
+    "niche": "gasfitero",
+    "id": "lead-10"
+  },
+  {
+    "name": "Gasfiter Profesionales",
+    "phone": "56984765541",
+    "city": "Santiago Centro",
+    "niche": "gasfitero",
+    "id": "lead-11"
   },
   {
     "name": "Don Gasfiter",
     "phone": "56987331524",
     "city": "Santiago",
     "niche": "gasfitero",
-    "source": "web",
-    "id": "lead-2"
-  },
-  {
-    "name": "Fono Maestro",
-    "phone": "56985461787",
-    "city": "Santiago",
-    "niche": "gasfitero",
-    "source": "web",
-    "id": "lead-3"
-  },
-  {
-    "name": "Gasfitería GEAC",
-    "phone": "56962216537",
-    "city": "Santiago",
-    "niche": "gasfitero",
-    "source": "web",
-    "id": "lead-4"
+    "id": "lead-12"
   },
   {
     "name": "El Plomero",
     "phone": "56975880527",
     "city": "Santiago",
     "niche": "gasfitero",
-    "source": "web",
-    "id": "lead-5"
+    "id": "lead-13"
   },
   {
     "name": "AS Gasfiter",
     "phone": "56997481755",
     "city": "Santiago",
     "niche": "gasfitero",
-    "source": "web",
-    "id": "lead-6"
-  },
-  {
-    "name": "Gasfiter a Domicilio",
-    "phone": "56974679118",
-    "city": "Santiago",
-    "niche": "gasfitero",
-    "source": "web",
-    "id": "lead-7"
-  },
-  {
-    "name": "Plomero.cl",
-    "phone": "56226837000",
-    "city": "Santiago",
-    "niche": "gasfitero",
-    "source": "web",
-    "id": "lead-8"
-  },
-  {
-    "name": "Gasfiter en Santiago Centro",
-    "phone": "5622352000",
-    "city": "Santiago Centro",
-    "niche": "gasfitero",
-    "source": "web",
-    "id": "lead-9"
+    "id": "lead-14"
   },
   {
     "name": "Maestro en Casa",
-    "phone": "56912345678",
+    "phone": "56985461787",
     "city": "Las Condes",
     "niche": "gasfitero",
-    "source": "web",
-    "id": "lead-10"
+    "id": "lead-15"
   },
   {
-    "name": "Electricistas Santiago",
-    "phone": "56975980706",
+    "name": "Gasfitería 24hrs",
+    "phone": "56998767089",
     "city": "Santiago",
-    "niche": "electricista",
-    "source": "web",
-    "id": "lead-11"
+    "niche": "gasfitero",
+    "id": "lead-16"
   },
   {
-    "name": "Electricidad SEC",
-    "phone": "56951987818",
+    "name": "Emergencias Eléctricas Chile",
+    "phone": "56920248844",
     "city": "Santiago",
     "niche": "electricista",
-    "source": "web",
-    "id": "lead-12"
+    "id": "lead-17"
+  },
+  {
+    "name": "Servielectric",
+    "phone": "56968952565",
+    "city": "Santiago",
+    "niche": "electricista",
+    "id": "lead-18"
+  },
+  {
+    "name": "Electricista24.cl",
+    "phone": "56972412050",
+    "city": "Santiago",
+    "niche": "electricista",
+    "id": "lead-19"
+  },
+  {
+    "name": "Electricista Domicilio",
+    "phone": "56950195849",
+    "city": "Santiago",
+    "niche": "electricista",
+    "id": "lead-20"
   },
   {
     "name": "Voltaje LM",
     "phone": "56952252898",
     "city": "Providencia",
     "niche": "electricista",
-    "source": "web",
-    "id": "lead-13"
-  },
-  {
-    "name": "Electricista24.cl",
-    "phone": "56912345678",
-    "city": "Santiago",
-    "niche": "electricista",
-    "source": "web",
-    "id": "lead-14"
-  },
-  {
-    "name": "Electricista Santiago Centro",
-    "phone": "56950195849",
-    "city": "Santiago Centro",
-    "niche": "electricista",
-    "source": "web",
-    "id": "lead-15"
-  },
-  {
-    "name": "Tu Electricista",
-    "phone": "56912345678",
-    "city": "Santiago",
-    "niche": "electricista",
-    "source": "web",
-    "id": "lead-16"
-  },
-  {
-    "name": "Cerrajero Alex",
-    "phone": "56912345678",
-    "city": "Santiago",
-    "niche": "cerrajero",
-    "source": "web",
-    "id": "lead-17"
-  },
-  {
-    "name": "Cerrajero Vega",
-    "phone": "56912345678",
-    "city": "Santiago",
-    "niche": "cerrajero",
-    "source": "web",
-    "id": "lead-18"
-  },
-  {
-    "name": "Alo Cerrajero",
-    "phone": "56912345678",
-    "city": "Santiago Centro",
-    "niche": "cerrajero",
-    "source": "web",
-    "id": "lead-19"
-  },
-  {
-    "name": "Cerrajero Urgencias",
-    "phone": "56912345678",
-    "city": "Santiago",
-    "niche": "cerrajero",
-    "source": "web",
-    "id": "lead-20"
-  },
-  {
-    "name": "Maestros Pintores",
-    "phone": "56912345678",
-    "city": "Santiago",
-    "niche": "pintor",
-    "source": "web",
     "id": "lead-21"
   },
   {
-    "name": "Techomanía",
-    "phone": "56912345678",
+    "name": "Electricista Certificado SEC",
+    "phone": "56991060582",
     "city": "Santiago",
-    "niche": "pintor",
-    "source": "web",
+    "niche": "electricista",
     "id": "lead-22"
   },
   {
-    "name": "Pinta Servicios",
+    "name": "Emergencias Eléctricas 24hrs",
+    "phone": "56991069857",
+    "city": "Santiago",
+    "niche": "electricista",
+    "id": "lead-23"
+  },
+  {
+    "name": "Electricidad SEC",
+    "phone": "56951987818",
+    "city": "Santiago",
+    "niche": "electricista",
+    "id": "lead-24"
+  },
+  {
+    "name": "Electricistas Chile",
+    "phone": "56936396894",
+    "city": "Santiago",
+    "niche": "electricista",
+    "id": "lead-25"
+  },
+  {
+    "name": "Cerrajero a Domicilio",
+    "phone": "56961499027",
+    "city": "Santiago",
+    "niche": "cerrajero",
+    "id": "lead-26"
+  },
+  {
+    "name": "Cerrajero Vega",
+    "phone": "56992391520",
+    "city": "Santiago",
+    "niche": "cerrajero",
+    "id": "lead-27"
+  },
+  {
+    "name": "Cerrajero Santiago Centro",
+    "phone": "56961583641",
+    "city": "Santiago Centro",
+    "niche": "cerrajero",
+    "id": "lead-28"
+  },
+  {
+    "name": "Cerrajería SOS",
+    "phone": "56966106186",
+    "city": "Santiago",
+    "niche": "cerrajero",
+    "id": "lead-29"
+  },
+  {
+    "name": "Cerrajero Amigo",
+    "phone": "56962361491",
+    "city": "Santiago",
+    "niche": "cerrajero",
+    "id": "lead-30"
+  },
+  {
+    "name": "Cerrajero 24/7",
+    "phone": "56976493155",
+    "city": "Santiago",
+    "niche": "cerrajero",
+    "id": "lead-31"
+  },
+  {
+    "name": "Cerrajería Urgente",
+    "phone": "56965323143",
+    "city": "Santiago",
+    "niche": "cerrajero",
+    "id": "lead-32"
+  },
+  {
+    "name": "Alo Cerrajero",
+    "phone": "56950195849",
+    "city": "Santiago Centro",
+    "niche": "cerrajero",
+    "id": "lead-33"
+  },
+  {
+    "name": "Cerrajero Lockmaster",
+    "phone": "56926985701",
+    "city": "Santiago",
+    "niche": "cerrajero",
+    "id": "lead-34"
+  },
+  {
+    "name": "Pinta",
+    "phone": "56991215534",
+    "city": "Providencia",
+    "niche": "pintor",
+    "id": "lead-35"
+  },
+  {
+    "name": "Techomanía",
+    "phone": "56954161777",
+    "city": "Las Condes",
+    "niche": "pintor",
+    "id": "lead-36"
+  },
+  {
+    "name": "Maestros Pintores",
+    "phone": "56226837000",
+    "city": "Santiago",
+    "niche": "pintor",
+    "id": "lead-37"
+  },
+  {
+    "name": "Grupo Guzmán Pintura",
+    "phone": "56949841173",
+    "city": "Santiago",
+    "niche": "pintor",
+    "id": "lead-38"
+  },
+  {
+    "name": "Reparación Techos",
+    "phone": "56992868721",
+    "city": "Santiago",
+    "niche": "pintor",
+    "id": "lead-39"
+  },
+  {
+    "name": "Techomaniacos",
     "phone": "56912345678",
     "city": "Santiago",
     "niche": "pintor",
-    "source": "web",
-    "id": "lead-23"
+    "id": "lead-40"
+  },
+  {
+    "name": "Tu Carpintero",
+    "phone": "56965131361",
+    "city": "Santiago",
+    "niche": "carpintero",
+    "id": "lead-41"
+  },
+  {
+    "name": "Maestro Carpintero",
+    "phone": "56990211212",
+    "city": "Ñuñoa",
+    "niche": "carpintero",
+    "id": "lead-42"
+  },
+  {
+    "name": "Ferretería El Carpintero",
+    "phone": "56991289372",
+    "city": "Santiago",
+    "niche": "carpintero",
+    "id": "lead-43"
+  },
+  {
+    "name": "Carpintero Pablo Alfaro",
+    "phone": "56991289372",
+    "city": "Santiago",
+    "niche": "carpintero",
+    "id": "lead-44"
+  },
+  {
+    "name": "Carpintero Nelson Cisternas",
+    "phone": "56966462417",
+    "city": "Santiago",
+    "niche": "carpintero",
+    "id": "lead-45"
+  },
+  {
+    "name": "Guido Zagaglioni",
+    "phone": "56998600645",
+    "city": "Viña del Mar",
+    "niche": "gasfitero",
+    "id": "lead-46"
+  },
+  {
+    "name": "Gasfitería Quinta Región",
+    "phone": "56981969171",
+    "city": "Viña del Mar",
+    "niche": "gasfitero",
+    "id": "lead-47"
+  },
+  {
+    "name": "Aquí Gásfiter Viña",
+    "phone": "56984409443",
+    "city": "Viña del Mar",
+    "niche": "gasfitero",
+    "id": "lead-48"
+  },
+  {
+    "name": "Gasfiter Don Jose",
+    "phone": "56921603867",
+    "city": "Viña del Mar",
+    "niche": "gasfitero",
+    "id": "lead-49"
+  },
+  {
+    "name": "SV Electricidad",
+    "phone": "56947569747",
+    "city": "Viña del Mar",
+    "niche": "electricista",
+    "id": "lead-50"
+  },
+  {
+    "name": "Electricidad Vásquez",
+    "phone": "56959082790",
+    "city": "Viña del Mar",
+    "niche": "electricista",
+    "id": "lead-51"
+  },
+  {
+    "name": "Home Service Chile",
+    "phone": "56965802894",
+    "city": "Viña del Mar",
+    "niche": "electricista",
+    "id": "lead-52"
+  },
+  {
+    "name": "Electricidad y Gasfitería Vidal",
+    "phone": "56962614744",
+    "city": "Valparaíso",
+    "niche": "gasfitero",
+    "id": "lead-53"
+  },
+  {
+    "name": "Gasfigas Valparaíso",
+    "phone": "56993316182",
+    "city": "Valparaíso",
+    "niche": "gasfitero",
+    "id": "lead-54"
+  },
+  {
+    "name": "Sgr Electricidad",
+    "phone": "56997221630",
+    "city": "Valparaíso",
+    "niche": "electricista",
+    "id": "lead-55"
+  },
+  {
+    "name": "GasfiterConce",
+    "phone": "56954857763",
+    "city": "Concepción",
+    "niche": "gasfitero",
+    "id": "lead-56"
+  },
+  {
+    "name": "Gásfiter a Domicilio Concepción",
+    "phone": "56993243923",
+    "city": "Concepción",
+    "niche": "gasfitero",
+    "id": "lead-57"
+  },
+  {
+    "name": "ConstruGas",
+    "phone": "56979570078",
+    "city": "Concepción",
+    "niche": "gasfitero",
+    "id": "lead-58"
+  },
+  {
+    "name": "Hector Matus Gasfiter",
+    "phone": "56940419430",
+    "city": "Concepción",
+    "niche": "gasfitero",
+    "id": "lead-59"
+  },
+  {
+    "name": "TES Electricista",
+    "phone": "56977808342",
+    "city": "Concepción",
+    "niche": "electricista",
+    "id": "lead-60"
+  },
+  {
+    "name": "Bio Bio Eléctricos",
+    "phone": "56972412050",
+    "city": "Concepción",
+    "niche": "electricista",
+    "id": "lead-61"
+  },
+  {
+    "name": "Electricista Domicilio Concepción",
+    "phone": "56939695577",
+    "city": "Concepción",
+    "niche": "electricista",
+    "id": "lead-62"
+  },
+  {
+    "name": "Serviconstrucción",
+    "phone": "56997578451",
+    "city": "Concepción",
+    "niche": "electricista",
+    "id": "lead-63"
   },
   {
     "name": "Yo Instalo",
     "phone": "56912345678",
     "city": "Santiago",
     "niche": "solar",
-    "source": "web",
-    "id": "lead-24"
+    "id": "lead-64"
   },
   {
     "name": "Expertos en Panel Solar",
     "phone": "56912345678",
     "city": "Santiago",
     "niche": "solar",
-    "source": "web",
-    "id": "lead-25"
+    "id": "lead-65"
   },
   {
     "name": "Solar Fotovoltaica",
     "phone": "56912345678",
     "city": "Santiago",
     "niche": "solar",
-    "source": "web",
-    "id": "lead-26"
+    "id": "lead-66"
+  },
+  {
+    "name": "SolarPro Chile",
+    "phone": "56912345678",
+    "city": "Santiago",
+    "niche": "solar",
+    "id": "lead-67"
   }
 ]
