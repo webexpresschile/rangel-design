@@ -15,6 +15,11 @@
   --border: rgba(255,255,255,0.08);
   --green: #22c55e;
   --amber: #f59e0b;
+  --red: #ef4444;
+  --blue: #3b82f6;
+  --purple: #a855f7;
+  --gray: #6b7280;
+  --teal: #14b8a6;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
@@ -24,14 +29,14 @@ body {
   min-height: 100vh;
 }
 .header {
-  padding: 40px 32px 24px;
+  padding: 40px 32px 20px;
   border-bottom: 1px solid var(--border);
 }
 .header h1 { font-size: 1.75rem; font-weight: 600; margin-bottom: 4px; }
 .header p { color: var(--text2); font-size: 0.875rem; }
 .stats {
   display: flex;
-  gap: 16px;
+  gap: 10px;
   margin-top: 16px;
   flex-wrap: wrap;
 }
@@ -39,15 +44,21 @@ body {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 12px 20px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  min-width: 80px;
+  text-align: center;
 }
-.stat-card .num { font-size: 1.5rem; font-weight: 700; }
-.stat-card .label { font-size: 0.75rem; color: var(--text2); text-transform: uppercase; letter-spacing: 0.05em; }
+.stat-card:hover { border-color: var(--text2); }
+.stat-card.active { border-color: var(--accent); }
+.stat-card .num { font-size: 1.25rem; font-weight: 700; line-height: 1.2; }
+.stat-card .label { font-size: 0.625rem; color: var(--text2); text-transform: uppercase; letter-spacing: 0.05em; }
 
 .filters {
   display: flex;
-  gap: 12px;
-  padding: 16px 32px;
+  gap: 10px;
+  padding: 12px 32px;
   border-bottom: 1px solid var(--border);
   flex-wrap: wrap;
   align-items: center;
@@ -56,42 +67,60 @@ body {
   background: var(--surface);
   border: 1px solid var(--border);
   color: var(--text);
-  padding: 8px 12px;
+  padding: 7px 10px;
   border-radius: 6px;
-  font-size: 0.8125rem;
+  font-size: 0.8rem;
   font-family: inherit;
 }
 .filters select:focus, .filters input:focus { outline: none; border-color: var(--accent); }
-.search-input { min-width: 200px; }
-.count-badge { font-size: 0.75rem; color: var(--text2); margin-left: 8px; }
+.search-input { min-width: 180px; }
+.count-badge { font-size: 0.75rem; color: var(--text2); margin-left: 6px; }
+.bulk-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-left: auto;
+}
+.bulk-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  padding: 7px 12px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.bulk-btn:hover { border-color: var(--accent); color: var(--text); }
 
 .leads-list {
-  padding: 16px 32px 40px;
+  padding: 12px 32px 40px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 .lead-row {
   display: grid;
-  grid-template-columns: 1fr 120px 80px 100px 100px;
-  gap: 12px;
+  grid-template-columns: 1fr 120px 80px 130px 100px;
+  gap: 10px;
   align-items: center;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 12px 16px;
+  padding: 10px 14px;
   transition: all 0.2s;
 }
 .lead-row:hover { border-color: var(--accent); }
 .lead-name {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .lead-phone {
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   color: var(--text2);
   font-family: monospace;
 }
@@ -99,9 +128,9 @@ body {
   background: var(--green);
   color: #000;
   border: none;
-  padding: 6px 12px;
+  padding: 5px 10px;
   border-radius: 6px;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   cursor: pointer;
   transition: opacity 0.2s;
@@ -113,157 +142,293 @@ body {
 }
 .call-btn:hover { opacity: 0.85; }
 .lead-niche {
-  font-size: 0.6875rem;
+  font-size: 0.625rem;
   padding: 2px 8px;
   border-radius: 100px;
   background: rgba(8,52,140,0.2);
   color: var(--accent);
   text-align: center;
   font-weight: 500;
+  white-space: nowrap;
 }
 .lead-city {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: var(--text2);
   text-align: center;
+  white-space: nowrap;
 }
 .empty { 
   padding: 60px 32px;
   text-align: center;
   color: var(--text2);
 }
+
+/* Status */
+.status-select {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-family: inherit;
+  cursor: pointer;
+  width: 100%;
+}
+.status-select:focus { outline: none; }
+.status-nuevo { border-left: 3px solid var(--gray); }
+.status-contactado { border-left: 3px solid var(--blue); }
+.status-agendado { border-left: 3px solid var(--purple); }
+.status-seguimiento { border-left: 3px solid var(--amber); }
+.status-cerrado { border-left: 3px solid var(--green); }
+.status-no-responde { border-left: 3px solid var(--red); }
+.status-rechazado { border-left: 3px solid var(--red); opacity: 0.5; }
+
+/* Script box collapsible */
 .script-box {
-  margin: 16px 32px;
+  margin: 0 32px 12px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 24px;
+  overflow: hidden;
 }
-.script-box h3 { font-size: 0.875rem; font-weight: 600; margin-bottom: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; }
-.script-box p { font-size: 0.875rem; line-height: 1.7; color: var(--text2); }
-.script-box .lang { font-size: 0.6875rem; color: var(--accent); text-transform: uppercase; font-weight: 600; margin-top: 16px; margin-bottom: 4px; }
+.script-header {
+  padding: 14px 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+.script-header:hover { background: rgba(255,255,255,0.02); }
+.script-header h3 { font-size: 0.8125rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; }
+.script-toggle { font-size: 1rem; color: var(--text2); transition: transform 0.2s; }
+.script-box.open .script-toggle { transform: rotate(180deg); }
+.script-body {
+  padding: 0 20px 20px;
+  display: none;
+}
+.script-box.open .script-body { display: block; }
+.script-body p { font-size: 0.875rem; line-height: 1.7; color: var(--text2); }
+.script-body .lang { font-size: 0.6875rem; color: var(--accent); text-transform: uppercase; font-weight: 600; margin-top: 16px; margin-bottom: 4px; }
+.script-body .obj { font-size: 0.8125rem; color: var(--text2); margin-bottom: 6px; padding: 8px 12px; background: rgba(255,255,255,0.02); border-radius: 6px; }
+.script-body .obj strong { color: var(--text); }
 
 @media (max-width: 768px) {
   .lead-row {
-    grid-template-columns: 1fr 90px;
-    gap: 8px;
+    grid-template-columns: 1fr 80px;
+    gap: 6px;
   }
   .lead-niche, .lead-city { display: none; }
   .header { padding: 24px 16px; }
-  .filters { padding: 12px 16px; }
-  .leads-list { padding: 12px 16px; }
+  .filters { padding: 10px 16px; }
+  .leads-list { padding: 10px 16px; }
+  .script-box { margin: 0 16px 10px; }
+  .bulk-actions { margin-left: 0; width: 100%; }
 }
 </style>
 </head>
 <body>
 
 <div class="header">
-  <h1>📋 Leads — Llamadas</h1>
-  <p>Panel de leads con teléfono válido. Pulsa "Llamar" para marcar desde tu teléfono.</p>
+  <h1>📋 Leads — RANGEL DESIGN</h1>
+  <p>405 leads con teléfono. Marca estado después de cada llamada (se guarda automáticamente).</p>
   <div class="stats" id="stats"></div>
 </div>
 
 <div class="filters">
-  <select id="nicheFilter">
-    <option value="">Todos los rubros</option>
+  <select id="nicheFilter"><option value="">Todos los rubros</option></select>
+  <select id="cityFilter"><option value="">Todas las ciudades</option></select>
+  <select id="statusFilter">
+    <option value="">Todos los estados</option>
+    <option value="nuevo">🔄 Nuevo</option>
+    <option value="contactado">📞 Contactado</option>
+    <option value="agendado">📅 Agendado</option>
+    <option value="seguimiento">🔁 Seguimiento</option>
+    <option value="cerrado">✅ Cerrado</option>
+    <option value="no-responde">❌ No Responde</option>
+    <option value="rechazado">⛔ Rechazado</option>
   </select>
-  <select id="cityFilter">
-    <option value="">Todas las ciudades</option>
-  </select>
-  <input type="text" id="searchInput" class="search-input" placeholder="🔍 Buscar por nombre...">
+  <input type="text" id="searchInput" class="search-input" placeholder="🔍 Buscar...">
   <span class="count-badge" id="countBadge"></span>
+  <div class="bulk-actions">
+    <button class="bulk-btn" onclick="markAllVisible('nuevo')">↩ Reset</button>
+    <button class="bulk-btn" onclick="markAllVisible('contactado')">📞 Todos Contactados</button>
+  </div>
 </div>
 
-<div class="script-box" id="scriptBox">
-  <h3>📞 Speech de Venta (15-20 segundos)</h3>
-  <div class="lang">ESPAÑOL</div>
-  <p>
-    <strong>"Hola [nombre], habla Armando Rangel de Rangel Design — ¿tienes 20 segundos o te agarré en mal momento?"</strong><br><br>
-    <em>(esperas respuesta — esto solo ya sube la tasa de que sigan escuchando)</em><br><br>
-    "Te cuento rápido: trabajo con negocios de <strong>[rubro]</strong> en <strong>[ciudad]</strong> ayudándolos a conseguir clientes nuevos con publicidad en Google y Meta, sin necesidad de tener página web.<br><br>
-    No te quiero vender nada por teléfono — la idea es mostrarte 2 o 3 casos de negocios parecidos al tuyo y ver si tiene sentido para ti. ¿Tienes 15 minutos esta semana, martes o jueves, para que te muestre cómo lo estamos haciendo?"
-  </p>
-  <div class="lang">ENGLISH</div>
-  <p>
-    "Hi [name], this is Armando from Rangel Design — do you have 20 seconds, or is this a bad time?<br><br>
-    <em>(wait for response)</em><br><br>
-    Quickly: I work with <strong>[niche]</strong> businesses in <strong>[city]</strong> helping them get new customers through Google and Meta ads — no website required.<br><br>
-    I'm not trying to sell you anything over the phone. The idea is to show you 2 or 3 case studies of similar businesses and see if it makes sense for you. Do you have 15 minutes this week, Tuesday or Thursday, for me to show you how we're doing thing?"
-  </p>
+<div class="script-box open" id="scriptBox">
+  <div class="script-header" onclick="document.getElementById('scriptBox').classList.toggle('open')">
+    <h3>📞 Speech de Venta</h3>
+    <span class="script-toggle">▼</span>
+  </div>
+  <div class="script-body">
+    <div class="lang">ESPAÑOL</div>
+    <p>
+      <strong>"Hola [nombre], habla Armando Rangel de Rangel Design — ¿tienes 20 segundos o te agarré en mal momento?"</strong><br><br>
+      <em>(esperas respuesta — esto solo ya sube la tasa de que sigan escuchando)</em><br><br>
+      "Te cuento rápido: trabajo con negocios de <strong>[rubro]</strong> en <strong>[ciudad]</strong> ayudándolos a conseguir clientes nuevos con publicidad en Google y Meta, sin necesidad de tener página web.<br><br>
+      No te quiero vender nada por teléfono — la idea es mostrarte 2 o 3 casos de negocios parecidos al tuyo y ver si tiene sentido para ti. <strong>¿Tienes 15 minutos esta semana, martes o jueves, para que te muestre cómo lo estamos haciendo?"</strong>
+    </p>
+    <div class="lang">OBJECIONES</div>
+    <div class="obj"><strong>¿Cuánto cuesta?</strong> → "Déjame mostrarte primero los casos y vemos si tiene sentido — después te paso los números."</div>
+    <div class="obj"><strong>Ya tengo alguien</strong> → "Si estás conforme, perfecto. Si crees que podría rendir más, te muestro rápido lo que hacemos."</div>
+    <div class="obj"><strong>Mándame info</strong> → "Claro, pero antes — ¿Google o Meta te interesa más? Así te envío algo preciso."</div>
+  </div>
 </div>
 
 <div class="leads-list" id="leadsList"></div>
 
 <script>
-// Load leads from JSON
+// ===== STATUS STORAGE =====
+const STATUS_KEY = 'rangel-leads-status';
+let statuses = {};
+
+function loadStatuses() {
+  try {
+    const stored = localStorage.getItem(STATUS_KEY);
+    if (stored) statuses = JSON.parse(stored);
+  } catch(e) { statuses = {}; }
+}
+
+function saveStatuses() {
+  localStorage.setItem(STATUS_KEY, JSON.stringify(statuses));
+}
+
+function getStatus(id) {
+  return statuses[id] || 'nuevo';
+}
+
+function setStatus(id, s) {
+  statuses[id] = s;
+  saveStatuses();
+}
+
+// ===== LOAD LEADS =====
 let allLeads = [];
 
 async function loadLeads() {
   try {
     const res = await fetch('leads.json');
     allLeads = await res.json();
+    // Assign unique id if not present
+    allLeads.forEach((l, i) => { if (!l.id) l.id = 'lead-' + i; });
     render();
   } catch(e) {
-    document.getElementById('leadsList').innerHTML = 
-      `<div class="empty">⚠️ No pude cargar los leads. Asegúrate de que leads.json está en el mismo directorio.</div>`;
+    document.getElementById('leadsList').innerHTML =
+      `<div class="empty">⚠️ No pude cargar leads.json</div>`;
   }
 }
 
+// ===== RENDER =====
 function render() {
+  loadStatuses();
+
   const nicheFilter = document.getElementById('nicheFilter').value;
   const cityFilter = document.getElementById('cityFilter').value;
+  const statusFilter = document.getElementById('statusFilter').value;
   const searchTerm = document.getElementById('searchInput').value.toLowerCase();
 
+  // Status counts
+  const counts = { nuevo:0, contactado:0, agendado:0, seguimiento:0, cerrado:0, 'no-responde':0, rechazado:0 };
+  allLeads.forEach(l => {
+    const s = getStatus(l.id);
+    if (counts[s] !== undefined) counts[s]++;
+  });
+
+  // Stats with status filter
+  const statusLabels = {
+    nuevo: { label: 'Nuevo', color: 'var(--gray)' },
+    contactado: { label: 'Contactado', color: 'var(--blue)' },
+    agendado: { label: 'Agendado', color: 'var(--purple)' },
+    seguimiento: { label: 'Seguimiento', color: 'var(--amber)' },
+    cerrado: { label: 'Cerrado', color: 'var(--green)' },
+    'no-responde': { label: 'No Resp.', color: 'var(--red)' },
+    rechazado: { label: 'Rechazado', color: 'var(--gray)' }
+  };
+  let statsHtml = '';
+  for (const [key, info] of Object.entries(statusLabels)) {
+    const isActive = statusFilter === key;
+    statsHtml += `<div class="stat-card ${isActive ? 'active' : ''}" onclick="document.getElementById('statusFilter').value='${isActive ? '' : key}'; render()">
+      <div class="num" style="color:${info.color}">${counts[key]}</div>
+      <div class="label">${info.label}</div>
+    </div>`;
+  }
+
+  document.getElementById('stats').innerHTML = statsHtml;
+
+  // Populate niche/city dropdowns
+  const niches = [...new Set(allLeads.map(l => l.niche).filter(Boolean))].sort();
+  const cities = [...new Set(allLeads.map(l => l.city).filter(Boolean))].sort();
+  const selNiche = document.getElementById('nicheFilter');
+  const curNiche = selNiche.value;
+  selNiche.innerHTML = '<option value="">Todos los rubros</option>' +
+    niches.map(n => `<option value="${n}" ${n===curNiche?'selected':''}>${n}</option>`).join('');
+
+  const selCity = document.getElementById('cityFilter');
+  const curCity = selCity.value;
+  selCity.innerHTML = '<option value="">Todas las ciudades</option>' +
+    cities.map(c => `<option value="${c}" ${c===curCity?'selected':''}>${c}</option>`).join('');
+
+  // Filter
   let filtered = allLeads.filter(l => {
     if (nicheFilter && l.niche !== nicheFilter) return false;
     if (cityFilter && l.city !== cityFilter) return false;
+    if (statusFilter && getStatus(l.id) !== statusFilter) return false;
     if (searchTerm && !l.name.toLowerCase().includes(searchTerm)) return false;
     return true;
   });
 
-  // Stats
-  const niches = [...new Set(allLeads.map(l => l.niche).filter(Boolean))].sort();
-  const cities = [...new Set(allLeads.map(l => l.city).filter(Boolean))].sort();
+  document.getElementById('countBadge').textContent = `${filtered.length} de ${allLeads.length}`;
 
-  document.getElementById('stats').innerHTML = `
-    <div class="stat-card"><div class="num">${allLeads.length}</div><div class="label">Total Leads</div></div>
-    <div class="stat-card"><div class="num">${filtered.length}</div><div class="label">Filtrados</div></div>
-  `;
-
-  // Populate filter dropdowns
-  const nicheSelect = document.getElementById('nicheFilter');
-  const currentNiche = nicheSelect.value;
-  nicheSelect.innerHTML = '<option value="">Todos los rubros</option>' + 
-    niches.map(n => `<option value="${n}" ${n === currentNiche ? 'selected' : ''}>${n}</option>`).join('');
-
-  const citySelect = document.getElementById('cityFilter');
-  const currentCity = citySelect.value;
-  citySelect.innerHTML = '<option value="">Todas las ciudades</option>' + 
-    cities.map(c => `<option value="${c}" ${c === currentCity ? 'selected' : ''}>${c}</option>`).join('');
-
-  document.getElementById('countBadge').textContent = `${filtered.length} de ${allLeads.length} leads`;
-
-  // Render rows
   if (filtered.length === 0) {
     document.getElementById('leadsList').innerHTML = '<div class="empty">No hay leads con esos filtros</div>';
     return;
   }
 
-  document.getElementById('leadsList').innerHTML = filtered.map(l => `
-    <div class="lead-row">
+  document.getElementById('leadsList').innerHTML = filtered.map(l => {
+    const st = getStatus(l.id);
+    return `<div class="lead-row status-${st}">
       <div class="lead-name">${l.name || '—'}</div>
       <div class="lead-phone">+${l.phone}</div>
       <a href="tel:+${l.phone}" class="call-btn">📞 Llamar</a>
-      <div class="lead-niche">${l.niche || '—'}</div>
-      <div class="lead-city">${l.city || '—'}</div>
-    </div>
-  `).join('');
+      <select class="status-select" onchange="setStatus('${l.id}', this.value); render();">
+        ${['nuevo','contactado','agendado','seguimiento','cerrado','no-responde','rechazado'].map(s =>
+          `<option value="${s}" ${s===st?'selected':''}>${statusLabels[s].label}</option>`
+        ).join('')}
+      </select>
+      <div style="display:flex;gap:4px;justify-content:center;align-items:center;">
+        <span class="lead-niche">${l.niche || '—'}</span>
+        <span class="lead-city">${l.city || '—'}</span>
+      </div>
+    </div>`;
+  }).join('');
 }
 
-// Event listeners
+// ===== BULK MARK =====
+function markAllVisible(status) {
+  const nicheFilter = document.getElementById('nicheFilter').value;
+  const cityFilter = document.getElementById('cityFilter').value;
+  const statusFilter = document.getElementById('statusFilter').value;
+  const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+
+  allLeads.forEach(l => {
+    if (nicheFilter && l.niche !== nicheFilter) return;
+    if (cityFilter && l.city !== cityFilter) return;
+    if (statusFilter && getStatus(l.id) !== statusFilter) return;
+    if (searchTerm && !l.name.toLowerCase().includes(searchTerm)) return;
+    setStatus(l.id, status);
+  });
+  render();
+}
+
+// ===== EVENT LISTENERS =====
 document.getElementById('nicheFilter').addEventListener('change', render);
 document.getElementById('cityFilter').addEventListener('change', render);
+document.getElementById('statusFilter').addEventListener('change', render);
 document.getElementById('searchInput').addEventListener('input', render);
 
+loadStatuses();
 loadLeads();
 </script>
 
